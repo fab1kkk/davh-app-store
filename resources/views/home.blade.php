@@ -1,3 +1,4 @@
+@extends('base')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,38 +10,27 @@
 </head>
 
 <body>
-    @extends('base')
     <main>
-        @section('main-content')
-        <header>
-            <h5>Done</h5>
-        </header>
-        <ol>
-            <li>
-                <p><s>Create base layout that other pages will inherit from (navbar, footer)</s></p>
-            </li>
-            <li>
-                <p><s>Style base layout</s></p>
-            </li>
-            <li>
-                <p><s>Create HomePage</s></p>
-            </li>
-
-        </ol>
+        <div>
+            @section('done_content')
+            <h4>DONE</h4>
+            <ol>
+                <li>Prepare base layout</li>
+                <li>Style base layout</li>
+                <li>Create HomePage that extends 'base'.</li>
+            </ol>
+            @endsection
+        </div>
+        <div>
+            @section('to_do_content')
+            <h4>To-Do</h4>
+            <ol>
+                <li>Add 'Login' route</li>
+                <li>Add 'Register' route</li>
+            </ol>
+            @endsection
+        </div>
     </main>
-    @endsection
-    <div>
-        @section('additional-content')
-        <header>
-            <h5>TBD</h5>
-        </header>
-        <ol>
-            <li>
-                <p>Create Login route, registration</p>
-            </li>
-        </ol>
-        @endsection
-    </div>
 </body>
 
 </html>

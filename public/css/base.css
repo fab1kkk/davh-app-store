@@ -17,20 +17,14 @@ nav {
     font-size: 19px;
 }
 
-main.superb-content {
+.main-content {
     margin: 10px;
     background-color: rgba(0, 0, 5, .15);
     border-radius: 15px;
     padding: 30px;
-    overflow-wrap: break-word;   
+    overflow-wrap: break-word;
 }
-div.additional-content {
-    margin: 10px;
-    background-color: rgba(0, 0, 5, .15);
-    border-radius: 15px;
-    padding: 30px;
-    overflow-wrap: break-word;   
-}
+
 form .form-control {
     height: 30px;
 }

@@ -48,12 +48,14 @@
             </form>
         </div>
     </nav>
-    <main class="superb-content">
-        @yield ('main-content')
+    <main>
+        <div class="main-content">
+            @yield('done_content')
+        </div>
+        <div class="main-content">
+            @yield('to_do_content')
+        </div>
     </main>
-    <div class="additional-content">
-        @yield ('additional-content')
-    </div>
     <!-- FOOTER -->
     <footer class="bg-dark text-center">
         <div class="text-center p-3 text-white" style="background-color: rgba(0, 0, 0, 0.2);">
@@ -64,7 +66,7 @@
             <span> Developing for the purpose of studies.</span>
         </div>
     </footer>
-
+    </main>
 </body>
 
 </html>
