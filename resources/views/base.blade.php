@@ -39,21 +39,17 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control" type="search" aria-label="Search">
-                <span class="search-icon" type="button">
-                    <img class="magnifier-search" src="{{ asset('static/img/magnifier.png')}}">
-                </span>
+                <input class="form-control" type="search" aria-label="Search" placeholder="Search">
                 <a class="btn m-2 btn-sm" href="/login" type="submit">Sign In</a>
                 <a class="btn m-0 btn-sm" href="/register" type="submit">Sign Up</a>
             </form>
-        </div>
     </nav>
     <main>
         <div class="main-content">
             @yield('done_content')
         </div>
         <div class="main-content">
-            @yield('to_do_content')
+            @yield('todo_content')
         </div>
     </main>
     <!-- FOOTER -->

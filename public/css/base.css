@@ -8,14 +8,15 @@ body {
     flex-direction: column;
 }
 
-nav {
+.navbar {
     flex-shrink: 0;
     height: 60px;
     padding-top: 5px;
     border-bottom: 3px solid;
     border-color: rgba(0, 0, 0, .1);
-    font-size: 19px;
+    font-size: 20px;
 }
+
 
 .main-content {
     margin: 10px;
@@ -23,10 +24,6 @@ nav {
     border-radius: 15px;
     padding: 30px;
     overflow-wrap: break-word;
-}
-
-form .form-control {
-    height: 30px;
 }
 
 footer {
@@ -63,18 +60,6 @@ footer {
 
 .form-control {
     border-radius: 35px !important;
-}
-
-.search-icon {
-    position: relative;
-}
-
-.magnifier-search {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 50%;
-    padding: 3px;
-    right: 10px;
-    transform: translateY(-50%);
+    font-size: 12px !important;
+    height: 30px !important;
 }

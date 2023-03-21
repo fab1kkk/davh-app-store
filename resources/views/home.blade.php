@@ -11,25 +11,21 @@
 
 <body>
     <main>
-        <div>
-            @section('done_content')
-            <h4>DONE</h4>
-            <ol>
-                <li>Prepare base layout</li>
-                <li>Style base layout</li>
-                <li>Create HomePage that extends 'base'.</li>
-            </ol>
-            @endsection
-        </div>
-        <div>
-            @section('to_do_content')
-            <h4>To-Do</h4>
-            <ol>
-                <li>Add 'Login' route</li>
-                <li>Add 'Register' route</li>
-            </ol>
-            @endsection
-        </div>
+        @section('done_content')
+        <h4>DONE</h4>
+        <ol>
+            <li>Prepare base layout</li>
+            <li>Style base layout</li>
+            <li>Create HomePage that extends 'base'.</li>
+        </ol>
+        @endsection
+        @section('todo_content')
+        <h4>To-Do</h4>
+        <ol>
+            <li>Add 'Login' route</li>
+            <li>Add 'Register' route</li>
+        </ol>
+        @endsection
     </main>
 </body>
 
