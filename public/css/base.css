@@ -1,0 +1,86 @@
+html,
+body {
+    background: linear-gradient(90deg, #ffafbd, #ffc3a0);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    flex-shrink: 0;
+    height: 60px;
+    padding-top: 5px;
+    border-bottom: 3px solid;
+    border-color: rgba(0, 0, 0, .1);
+    font-size: 19px;
+}
+
+main.superb-content {
+    margin: 10px;
+    background-color: rgba(0, 0, 5, .15);
+    border-radius: 15px;
+    padding: 30px;
+    overflow-wrap: break-word;   
+}
+div.additional-content {
+    margin: 10px;
+    background-color: rgba(0, 0, 5, .15);
+    border-radius: 15px;
+    padding: 30px;
+    overflow-wrap: break-word;   
+}
+form .form-control {
+    height: 30px;
+}
+
+footer {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-style: italic;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.foot-git {
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+}
+
+.foot-span {
+    padding: 15px;
+}
+
+
+.btn {
+    border-radius: 10px !important;
+    border: #ffafbd !important;
+    background-color: #fda36f !important;
+    color: white !important;
+    width: 65px;
+}
+
+.btn:hover {
+    background-color: #fab38a !important;
+}
+
+.form-control {
+    border-radius: 35px !important;
+}
+
+.search-icon {
+    position: relative;
+}
+
+.magnifier-search {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    padding: 3px;
+    right: 10px;
+    transform: translateY(-50%);
+}

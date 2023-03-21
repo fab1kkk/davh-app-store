@@ -6,8 +6,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('index', [
-            'project_name' => 'myproject',
-        ]);
+        return view('home');
     }
 }
