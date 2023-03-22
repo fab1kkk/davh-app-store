@@ -20,7 +20,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
@@ -46,22 +46,18 @@
     </nav>
     <main>
         <div class="main-content">
-            @yield('done_content')
+            @yield('content')
         </div>
-        <div class="main-content">
-            @yield('todo_content')
-        </div>
-    </main>
-    <!-- FOOTER -->
-    <footer class="bg-dark text-center">
-        <div class="text-center p-3 text-white" style="background-color: rgba(0, 0, 0, 0.2);">
-            <span class="foot-span">{{ config('app.name') }} project using PHP v<strong>{{ PHP_VERSION }}</strong> and Laravel v<strong>{{ Illuminate\Foundation\Application::VERSION}}</strong></span>
-            <a class="text-white" target="_blank" href="https://github.com/fab1kkk/davh-app-store">
-                <img class="foot-git" src="{{ asset('static/img/githubpng.png') }}" alt="github icon">
-            </a>
-            <span> Developing for the purpose of studies.</span>
-        </div>
-    </footer>
+        <!-- FOOTER -->
+        <footer class="bg-dark text-center">
+            <div class="text-center p-3 text-white" style="background-color: rgba(0, 0, 0, 0.2);">
+                <span class="foot-span">{{ config('app.name') }} project using PHP v<strong>{{ PHP_VERSION }}</strong> and Laravel v<strong>{{ Illuminate\Foundation\Application::VERSION}}</strong></span>
+                <a class="text-white" target="_blank" href="https://github.com/fab1kkk/davh-app-store">
+                    <img class="foot-git" src="{{ asset('static/img/githubpng.png') }}" alt="github icon">
+                </a>
+                <span> Developing for the purpose of studies.</span>
+            </div>
+        </footer>
     </main>
 </body>
 
