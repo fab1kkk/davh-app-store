@@ -22,27 +22,13 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control" type="search" aria-label="Search" placeholder="Search">
+                <input class="form-control" type="search" aria-label="Search" placeholder="Search...">
                 <a class="btn m-2 btn-sm" href="/login" type="submit">Sign In</a>
                 <a class="btn m-0 btn-sm" href="/register" type="submit">Sign Up</a>
             </form>
+        </div>
     </nav>
     <main>
         <div class="main-content">
