@@ -11,6 +11,11 @@
 
 <body>
     @section('content')
+    @if(session('success_register'))
+    <div class="alert alert-success">
+        {{ session('success_register') }}
+    </div>
+    @endif
     <h4>DONE</h4>
     <ol>
         <li>Prepare base layout</li>

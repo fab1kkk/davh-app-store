@@ -10,4 +10,8 @@ class LoginController extends Controller
     {
         return view('auth.login');
     }
+
+    public function login(Request $request){
+        
+    }
 }
