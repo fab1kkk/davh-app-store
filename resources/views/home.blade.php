@@ -11,22 +11,12 @@
 
 <body>
     @section('content')
-    @if(session('success_register'))
+    @if(session('success_form'))
     <div class="alert alert-success">
-        {{ session('success_register') }}
+        {{ session('success_form') }}
     </div>
     @endif
-    <h4>DONE</h4>
-    <ol>
-        <li>Prepare base layout</li>
-        <li>Style base layout</li>
-        <li>Create HomePage that extends 'base'.</li>
-    </ol>
-    <h4>To-Do</h4>
-    <ol>
-        <li>Add 'Login' route</li>
-        <li>Add 'Register' route</li>
-    </ol>
+    <span>Home page :)</span>
     @endsection
 </body>
 

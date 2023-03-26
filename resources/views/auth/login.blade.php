@@ -11,22 +11,31 @@
 
 <body>
     @section('content')
-    <form action="{{ route('login.submit')}}" method="post"></form>
-    @csrf
-    <div class="login-form text-center">
-        <div>
-            <label for="email">Email:</label>
-            <input id="email" type="email" name="email" required>
-        </div>
-        <div>
-            <label for="password">Password:</label>
-            <input id="password" type="password" name="password" required>
-        </div>
-        <div>
-            <button class="btn m-2 btn-sm" type="submit"> Log In </button>
-        </div>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
     </div>
-
+    @endif
+    <form action="{{ route('login.submit')}}" method="post">
+        @csrf
+        <div class="login-form text-center">
+            <div>
+                <label for="email">Email:</label>
+                <input id="email" type="email" name="email" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input id="password" type="password" name="password" required>
+            </div>
+            <div>
+                <button class="btn m-2 btn-sm" type="submit"> Log In </button>
+            </div>
+        </div>
+    </form>
     @endsection
 </body>
 
