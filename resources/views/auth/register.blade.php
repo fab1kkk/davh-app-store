@@ -21,7 +21,7 @@
     </div>
     @endif
     <div class="register-form text-center">
-        <form action="{{ route('register.submit') }}" method="post">
+        <form action="{{ route('register.store') }}" method="post">
             @csrf
             <div>
                 <label for="name">Name:</label>

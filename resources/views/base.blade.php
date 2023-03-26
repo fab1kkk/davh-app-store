@@ -23,15 +23,29 @@
                     <a class="nav-link" href="{{ route('home') }}">Home</a>
                 </li>
             </ul>
+            @if (auth()->check())
+            <form class="form-inline my-2 my-lg-0" method="POST" action="{{ route('logout') }}">
+                @csrf
+                <input class="form-control" type="search" aria-label="Search" placeholder="Search...">
+                <button class="btn m-1 btn-sm" type="submit">Logout</button>
+            </form>
+            @else
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control" type="search" aria-label="Search" placeholder="Search...">
-                <a class="btn m-2 btn-sm" href="/login" type="submit">Sign In</a>
-                <a class="btn m-0 btn-sm" href="/register" type="submit">Sign Up</a>
+                <a class="btn m-1 btn-sm" href="{{ route('loginForm')}}" type="submit">Sign In</a>
+                <a class="btn m-0 btn-sm" href="{{ route('registerForm')}}" type="submit">Sign Up</a>
             </form>
+            @endif
         </div>
     </nav>
     <main>
         <div class="main-content">
+            @auth
+            <p>logged in</p>
+            @endauth
+            @guest
+            <p>guest</p>
+            @endguest
             @yield('content')
         </div>
         <!-- FOOTER -->

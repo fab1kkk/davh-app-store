@@ -20,7 +20,7 @@
         </ul>
     </div>
     @endif
-    <form action="{{ route('login.submit')}}" method="post">
+    <form action="{{ route('login')}}" method="post">
         @csrf
         <div class="login-form text-center">
             <div>
@@ -32,7 +32,7 @@
                 <input id="password" type="password" name="password" required>
             </div>
             <div>
-                <button class="btn m-2 btn-sm" type="submit"> Log In </button>
+                <button class="btn m-2 btn-sm" type="submit">Log In</button>
             </div>
         </div>
     </form>
