@@ -10,54 +10,55 @@
 </head>
 
 <body>
-    @section('content')
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-    <div class="register-form text-center">
-        <form action="{{ route('register.store') }}" method="post">
-            @csrf
-            <div>
-                <label for="name">Name:</label>
-
+    <main>
+        @section('content')
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+        <div class="register-form text-center">
+            <form action="{{ route('register.store') }}" method="post">
+                @csrf
                 <div>
-                    <input id="name" type="text" name="name" required>
-                </div>
-            </div>
-            <div>
-                <label for="email">E-Mail:</label>
+                    <label for="name">Name:</label>
 
+                    <div>
+                        <input id="name" type="text" name="name" required>
+                    </div>
+                </div>
                 <div>
-                    <input id="email" type="email" name="email" required>
-                </div>
-            </div>
-            <div>
-                <label for="password">Password:</label>
+                    <label for="email">E-Mail:</label>
 
+                    <div>
+                        <input id="email" type="email" name="email" required>
+                    </div>
+                </div>
                 <div>
-                    <input id="password" type="password" name="password" required>
-                </div>
-            </div>
-            <div>
-                <label for="password_confirmation">Confirm Password:</label>
+                    <label for="password">Password:</label>
 
+                    <div>
+                        <input id="password" type="password" name="password" required>
+                    </div>
+                </div>
                 <div>
-                    <input id="password_confirmation" type="password" name="password_confirmation" required>
+                    <label for="password_confirmation">Confirm Password:</label>
+
+                    <div>
+                        <input id="password_confirmation" type="password" name="password_confirmation" required>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <button class="btn m-2 btn-sm" style="font-size:13px" type="submit">Register</button>
-            </div>
-    </div>
+                <div>
+                    <button class="btn m-2 btn-sm" style="font-size:13px" type="submit">Register</button>
+                </div>
+        </div>
 
-    </form>
-
+        </form>
+    </main>
     @endsection
 </body>
 

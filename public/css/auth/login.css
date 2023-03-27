@@ -1,0 +1,40 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 35px;
+    background-color: rgba(0, 0, 5, .1);
+    margin: 5% auto;
+    width: 300px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 5px !important;
+}
+
+input {
+    padding: 5px;
+    border: 2px solid #f8ddf8;
+    border-radius: 5px;
+    height: 25px;
+    width: 225px;
+}
+.form-group .btn
+{
+    width: inherit;
+    font-size: 14px;
+}

@@ -12,7 +12,7 @@
 
 <body>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mr-auto">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,27 +38,21 @@
             @endif
         </div>
     </nav>
+
     <main>
-        <div class="main-content">
-            @auth
-            <p>logged in</p>
-            @endauth
-            @guest
-            <p>guest</p>
-            @endguest
-            @yield('content')
-        </div>
-        <!-- FOOTER -->
-        <footer class="bg-dark text-center">
-            <div class="text-center p-3 text-white" style="background-color: rgba(0, 0, 0, 0.2);">
-                <span class="foot-span">{{ config('app.name') }} project using PHP v<strong>{{ PHP_VERSION }}</strong> and Laravel v<strong>{{ Illuminate\Foundation\Application::VERSION}}</strong></span>
-                <a class="text-white" target="_blank" href="https://github.com/fab1kkk/davh-app-store">
-                    <img class="foot-git" src="{{ asset('static/img/githubpng.png') }}" alt="github icon">
-                </a>
-                <span> Developing for the purpose of studies.</span>
-            </div>
-        </footer>
+        @yield('content')
     </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-center">
+        <div class="text-center p-3 text-white" style="background-color: rgba(0, 0, 0, 0.2);">
+            <span class="foot-span">{{ config('app.name') }} project using PHP v<strong>{{ PHP_VERSION }}</strong> and Laravel v<strong>{{ Illuminate\Foundation\Application::VERSION}}</strong></span>
+            <a class="text-white" target="_blank" href="https://github.com/fab1kkk/davh-app-store">
+                <img class="foot-git" src="{{ asset('static/img/githubpng.png') }}" alt="github icon">
+            </a>
+            <span> Developing for the purpose of studies.</span>
+        </div>
+    </footer>
 </body>
 
 </html>
