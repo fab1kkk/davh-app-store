@@ -1,6 +1,7 @@
 html,
 body {
-    background: linear-gradient(90deg, #ffafbd, #ffc3a0);
+    background: linear-gradient(90deg, #fcc5ce, #ffc3a0);
+    display: contents;
 }
 
 .navbar {
@@ -24,6 +25,26 @@ footer {
     width: 30px;
     height: 30px;
     margin-right: 15px;
+}
+
+.header-profile {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-right input {
+    margin-right: 1rem;
+}
+
+.header-profile:hover {
+    transition: all 0.3s ease;
+    transform: scale(1.07);
 }
 
 .foot-span {

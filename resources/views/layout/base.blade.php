@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/base.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title></title>
+    <title>@yield('title', 'Online Store')</title>
 </head>
 
 <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mr-auto">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -22,12 +22,20 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route('home') }}">Home</a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ route('home') }}">Products</a>
+                </li>
             </ul>
             @if (auth()->check())
             <form class="form-inline my-2 my-lg-0" method="POST" action="{{ route('logout') }}">
                 @csrf
-                <input class="form-control" type="search" aria-label="Search" placeholder="Search...">
-                <button class="btn m-1 btn-sm" type="submit">Logout</button>
+                <div class="header-right">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <a href="#" class="header-profile-dropdown-toggle">
+                        <img class="header-profile" src="{{ asset('static/img/profile.png') }}" alt="profile icon">
+                    </a>
+                    <button class="btn m-1 btn-sm" type="submit">Logout</button>
+                </div>
             </form>
             @else
             <form class="form-inline my-2 my-lg-0">
@@ -39,7 +47,7 @@
         </div>
     </nav>
 
-    <main>
+    <main class="container-fluid">
         @yield('content')
     </main>
 
@@ -47,7 +55,7 @@
     <footer class="bg-dark text-center">
         <div class="text-center p-3 text-white" style="background-color: rgba(0, 0, 0, 0.2);">
             <span class="foot-span">{{ config('app.name') }} project using PHP v<strong>{{ PHP_VERSION }}</strong> and Laravel v<strong>{{ Illuminate\Foundation\Application::VERSION}}</strong></span>
-            <a class="text-white" target="_blank" href="https://github.com/fab1kkk/davh-app-store">
+            <a target="_blank" href="https://github.com/fab1kkk/davh-app-store">
                 <img class="foot-git" src="{{ asset('static/img/githubpng.png') }}" alt="github icon">
             </a>
             <span> Developing for the purpose of studies.</span>

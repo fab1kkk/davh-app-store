@@ -5,7 +5,7 @@
     justify-content: center;
     border-radius: 10px;
     padding: 35px;
-    background-color: rgba(0, 0, 5, .1);
+    background-color: rgba(0, 0, 0, 0.35);
     margin: 5% auto;
     width: 300px;
 }
@@ -28,7 +28,7 @@ label {
 
 input {
     padding: 5px;
-    border: 2px solid #f8ddf8;
+    border: 1px solid #000000;
     border-radius: 5px;
     height: 25px;
     width: 225px;
