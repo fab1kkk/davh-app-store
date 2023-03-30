@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\CustomHelpers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -12,7 +13,7 @@ class LoginController extends Controller
     public function showLoginForm(): View
     {
         $viewData = [
-            'title' => 'Sign in ' . config('app.name'),
+            'title' => 'Sign in ' . CustomHelpers::getAppName(),
         ];
         return view('auth.login')->with($viewData);
     }

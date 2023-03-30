@@ -10,8 +10,6 @@
     {{ session('success_form') }}
 </div>
 @endif
-
-
 @auth
 <p>you're logged in as {{ Auth::user()->name }}</p>
 @endauth

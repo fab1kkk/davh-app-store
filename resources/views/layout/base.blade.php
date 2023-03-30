@@ -23,7 +23,7 @@
                         <a class="nav-link" href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home') }}">Products</a>
+                        <a class="nav-link" href="{{ route('products.showProducts') }}">Products</a>
                     </li>
                 </ul>
             </div>
@@ -32,31 +32,35 @@
         <div class="container">
             <input class="form-control" type="search" placeholder="Search" aria-label="Search">
         </div>
-        </div>
+
         @if (auth()->check())
         <div class="container">
-            <form class="form-inline my-2 my-lg-0" method="POST" action="{{ route('logout') }}">
+            <form class="form-inline my-2 my-lg-0" method="POST" action="{{ route('login.logout') }}">
                 @csrf
-                <div class="header-right">
+                <div class="nav-auth">
                     <a href="#" class="header-profile-dropdown-toggle">
                         <img class="header-profile" src="{{ asset('static/img/profile.png') }}" alt="profile icon">
                     </a>
                     <button class="btn m-1 btn-sm" type="submit">Logout</button>
                 </div>
+            </form>
         </div>
-        </form>
         @else
         <div class="container">
-            <form class="form-inline my-2 my-lg-0">
-                <a class="btn m-1 btn-sm" href="{{ route('loginForm')}}" type="submit">Sign In</a>
-                <a class="btn m-0 btn-sm" href="{{ route('registerForm')}}" type="submit">Sign Up</a>
-            </form>
+            <div class="nav-not-auth">
+                <a href="{{ route('login.showLoginForm')}}" type="submit">
+                    <button class="btn m-1 btn-sm">Sign In</button>
+                </a>
+                <a href="{{ route('register.showRegistrationForm')}}" type="submit">
+                    <button class="btn m-1 btn-sm">Sign Up</button>
+                </a>
+            </div>
         </div>
         @endif
     </nav>
 
     <main class="container-fluid">
-        <div class="container my-2">
+        <div class="container">
             @yield('content')
         </div>
     </main>

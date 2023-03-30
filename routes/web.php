@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,10 +19,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('loginForm');
-Route::post('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.showLoginForm');
+Route::post('/login', [LoginController::class, 'login'])->name('login.login');
+Route::post('/logout', [LoginController::class, 'logout'])->name('login.logout');
 
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
-Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('registerForm');
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register.showRegistrationForm');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+
+Route::get('/products', [ProductsController::class, 'showProducts'])->name('products.showProducts');

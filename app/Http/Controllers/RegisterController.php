@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\CustomHelpers;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -13,7 +14,7 @@ class RegisterController extends Controller
     public function showRegistrationForm(): View
     {
         $viewData = [
-            'title' => "Join " . config('app.name'),
+            'title' => "Join " . CustomHelpers::getAppName()
         ];
         return view('auth.register')->with($viewData);
     }

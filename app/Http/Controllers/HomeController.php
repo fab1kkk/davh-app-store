@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\CustomHelpers;
+
 class HomeController extends Controller
 {
     public function index()
     {
         $viewData = [
-            'title' => config('app.name'),
+            'title' => CustomHelpers::getAppName(),
         ];
         return view('home')->with($viewData);
     }

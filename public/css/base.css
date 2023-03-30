@@ -31,14 +31,11 @@ footer {
     margin: 0 10px;
 }
 
-.header-right {
+.nav-auth {
     display: flex;
     align-items: center;
 }
 
-.header-right input {
-    margin-right: 1rem;
-}
 
 .header-profile:hover {
     transition: all 0.3s ease;

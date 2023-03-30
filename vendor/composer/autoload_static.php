@@ -165,6 +165,7 @@ class ComposerStaticInitfb74a0b4f8911781c581c733541c9895
         ),
         'A' => 
         array (
+            'App\\Classes\\' => 12,
             'App\\' => 4,
         ),
     );
@@ -487,6 +488,10 @@ class ComposerStaticInitfb74a0b4f8911781c581c733541c9895
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
         ),
+        'App\\Classes\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app/Classes',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -505,11 +510,13 @@ class ComposerStaticInitfb74a0b4f8911781c581c733541c9895
     );
 
     public static $classMap = array (
+        'App\\Classes\\CustomHelpers' => __DIR__ . '/../..' . '/app/Classes/CustomHelpers.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoginController.php',
+        'App\\Http\\Controllers\\ProductsController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductsController.php',
         'App\\Http\\Controllers\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/RegisterController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
