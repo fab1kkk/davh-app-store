@@ -23,16 +23,17 @@
 label {
     font-weight: bold;
     font-size: 13px;
-    margin-bottom: 5px !important;
 }
 
-input {
+.form-group input {
     padding: 5px;
     border: 1px solid #000000;
     border-radius: 5px;
-    height: 25px;
+    height: 30px;
     width: 225px;
+    margin-bottom: 10px;
 }
+
 .form-group .btn
 {
     width: inherit;

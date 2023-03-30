@@ -1,6 +1,6 @@
 @extends('layout/base')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/auth/auth.css') }}">
-@section('title', 'Join Dav-App')
+@section('title', $title)
 @section('content')
 @if ($errors->any())
 <div id="error-messages" class="alert alert-danger text-center">

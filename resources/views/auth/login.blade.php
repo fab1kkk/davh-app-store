@@ -1,7 +1,7 @@
 @extends('layout/base')
 
 <link rel="stylesheet" type="text/css" href="{{ asset('css/auth/auth.css') }}">
-@section('title', 'Sign in Dav-App')
+@section('title', $title)
 
 @section('content')
 @if ($errors->any())

@@ -1,14 +1,12 @@
 html,
 body {
     background: linear-gradient(90deg, #fcc5ce, #ffc3a0);
-    display: contents;
 }
 
 .navbar {
-    height: 70px;
     padding-top: 5px;
     border-bottom: 3px solid;
-    border-color: rgba(0, 0, 0, .1);
+    border-color: rgba(255, 255, 255, 0.1);
     font-size: 20px;
 }
 
@@ -28,8 +26,8 @@ footer {
 }
 
 .header-profile {
-    width: 30px;
-    height: 30px;
+    width: 33px;
+    height: 33px;
     margin: 0 10px;
 }
 
@@ -47,9 +45,6 @@ footer {
     transform: scale(1.07);
 }
 
-.foot-span {
-    padding: 15px;
-}
 
 .btn {
     border-radius: 10px !important;
@@ -65,8 +60,8 @@ footer {
     transform: scale(1.07);
 }
 
-.form-control {
-    border-radius: 35px !important;
-    font-size: 12px !important;
+.container .form-control {
+    border-radius: 5px !important;
     height: 30px !important;
+    margin-top: 5px;
 }

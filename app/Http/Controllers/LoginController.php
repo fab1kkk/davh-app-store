@@ -11,7 +11,10 @@ class LoginController extends Controller
 {
     public function showLoginForm(): View
     {
-        return view('auth.login');
+        $viewData = [
+            'title' => 'Sign in ' . config('app.name'),
+        ];
+        return view('auth.login')->with($viewData);
     }
 
     public function login(Request $request): RedirectResponse

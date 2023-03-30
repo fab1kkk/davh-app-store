@@ -6,6 +6,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('home');
+        $viewData = [
+            'title' => config('app.name'),
+        ];
+        return view('home')->with($viewData);
     }
 }

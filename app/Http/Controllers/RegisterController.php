@@ -12,7 +12,10 @@ class RegisterController extends Controller
 {
     public function showRegistrationForm(): View
     {
-        return view('auth.register');
+        $viewData = [
+            'title' => "Join " . config('app.name'),
+        ];
+        return view('auth.register')->with($viewData);
     }
 
     public function store(Request $request): RedirectResponse
