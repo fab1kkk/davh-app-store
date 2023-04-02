@@ -1,3 +1,6 @@
+@php
+use App\Classes\CustomHelpers;
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,15 +63,24 @@
     </nav>
 
     <main class="container-fluid">
+        @if ($errors->any())
+        <div id="error-messages" class="alert alert-danger text-center">
+            @foreach ($errors->all() as $error)
+            <div class="error">{{ $error }}</div>
+            @endforeach
+        </div>
+        @endif
+
         <div class="container">
             @yield('content')
         </div>
+
     </main>
 
     <!-- FOOTER -->
     <footer class="bg-dark">
         <div class="text-center p-3 text-white" style="background-color: rgba(0, 0, 0, 0.2);">
-            <span class="foot-span">{{ config('app.name') }} project using PHP v<strong>{{ PHP_VERSION }}</strong> and Laravel v<strong>{{ Illuminate\Foundation\Application::VERSION}}. </strong></span>
+            <span class="foot-span">{{ CustomHelpers::getAppName() }} project using PHP v<strong>{{ PHP_VERSION }}</strong> and Laravel v<strong>{{ Illuminate\Foundation\Application::VERSION}}. </strong></span>
             <a target="_blank" href="https://github.com/fab1kkk/davh-app-store">
                 <img class="foot-git" src="{{ asset('static/img/github.png') }}" alt="github icon" style="margin-left: 10px" ;>
             </a>

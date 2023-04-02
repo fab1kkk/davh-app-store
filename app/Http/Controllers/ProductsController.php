@@ -13,6 +13,6 @@ class ProductsController extends Controller
             'title' => 'Browse our products',
         ];
 
-        return view('store/products')->with($viewData);
+        return view('store.products')->with($viewData);
     }
 }

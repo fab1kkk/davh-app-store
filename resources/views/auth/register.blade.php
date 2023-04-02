@@ -1,25 +1,20 @@
 @extends('layout/base')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/auth/auth.css') }}">
 @section('title', $title)
+
 @section('content')
-@if ($errors->any())
-<div id="error-messages" class="alert alert-danger text-center">
-    @foreach ($errors->all() as $error)
-    <div class="error">{{ $error }}</div>
-    @endforeach
-</div>
-@endif
+
 <div class="login">
     <div class="register-form">
         <form action="{{ route('register.store') }}" method="post">
             @csrf
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input id="name" type="text" name="name" required>
+                <input id="name" type="text" name="name" value="{{ old('name') }}"required>
             </div>
             <div class="form-group">
                 <label for="email">E-Mail:</label>
-                <input id="email" type="email" name="email" required>
+                <input id="email" type="email" name="email" value="{{ old('email') }}" required>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
@@ -34,4 +29,4 @@
             </div>
         </form>
     </div>
-    @endsection
+@endsection

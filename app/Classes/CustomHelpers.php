@@ -4,7 +4,7 @@ namespace App\Classes;
 
 class CustomHelpers
 {
-    public static $appName = 'Online Store project';
+    private static $appName = 'Shoppy';
 
     public static function getAppName()
     {
