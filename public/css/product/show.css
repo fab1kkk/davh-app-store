@@ -1,0 +1,24 @@
+.card
+{
+    background-color: #f7ccb4;
+    border-radius: 15px;
+    border: 0;
+}
+.card img
+{
+    padding: 15px;
+}
+
+.product-details
+{
+    border-radius: 15px;
+    background-color: #f7b18b;
+}
+.cart
+{
+    background-color: #ff6e0d !important;
+}
+.cart:hover
+{
+    background-color: rgb(172, 80, 19) !important;
+}

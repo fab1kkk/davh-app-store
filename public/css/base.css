@@ -68,10 +68,7 @@ footer {
     color: white !important;
     width: 65px;
 }
-.products
-{
-    width: fit-content;
-}
+
 .btn:hover {
     background-color: #fab38a !important;
     transition: all 0.3s ease;

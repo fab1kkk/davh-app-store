@@ -62,15 +62,18 @@ use App\Classes\CustomHelpers;
         @endif
     </nav>
     <div class="wrapper">
-        @if ($errors->any())
-        <div id="error-messages" class="alert alert-danger text-center">
-            @foreach ($errors->all() as $error)
-            <div class="error">{{ $error }}</div>
-            @endforeach
-        </div>
-        @endif
         <div class="container">
+            @if ($errors->any())
+            <div id="error-messages" class="alert alert-danger text-center">
+                @foreach ($errors->all() as $error)
+                <div class="error">{{ $error }}</div>
+                @endforeach
+            </div>
+            @endif
+            
+            <!-- CONTENT GOES HERE -->
             @yield('content')
+            <!-- END CONTENT -->
         </div>
     </div>
     <!-- FOOTER -->

@@ -27,7 +27,9 @@ class ProductController extends Controller
     {
         $product = ProductController::$products[$id-1];
         $viewData = [
+            'title' => $product['name'] . ' - ' . $product['description'],
             'product' => $product
+
         ];
 
         return view('product.show')->with($viewData);

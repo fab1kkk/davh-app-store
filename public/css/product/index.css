@@ -1,0 +1,21 @@
+.products {
+    width: fit-content;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+.card-img-top {
+    display: block;
+    margin: 0 auto;
+    padding: 15px;
+    
+}
+
+.card:hover {
+    background-color: #f7ccb4 !important;
+    transition: all 0.4s ease;
+    transform: scale(1.02);
+}
