@@ -1,6 +1,6 @@
 .card
 {
-    background-color: #f7ccb4;
+    background-color: #fde9df;
     border-radius: 15px;
     border: 0;
 }
@@ -11,8 +11,8 @@
 
 .product-details
 {
-    border-radius: 15px;
-    background-color: #f7b18b;
+    border-radius: 0 15px 15px 0;
+    background-color: #f7ccb4;
 }
 .cart
 {

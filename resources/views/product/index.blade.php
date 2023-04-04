@@ -9,7 +9,7 @@
         <div class="card">
             <img src="{{ asset('static/img/product/'.$product['image']) }}" alt="image" class="card-img-top omg-card">
             <div class="card-body text-center">
-                <a href="{{ route('product.show', ['id'=> $product['id']]) }}" class="btn products">{{ $product['name'] }}</a>
+                <a href="{{ route('product.show', ['id'=> $product['id']]) }}" class="btn products w-50">{{ $product['name'] }}</a>
             </div>
         </div>
     </div>
