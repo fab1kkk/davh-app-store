@@ -15,7 +15,7 @@ use App\Classes\CustomHelpers;
 
 <body>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-secondary py-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-secondary fixed-top">
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -23,10 +23,10 @@ use App\Classes\CustomHelpers;
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home') }}">Home</a>
+                        <a class="nav-link" href="{{ route('home.index') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('products.showProducts') }}">Products</a>
+                        <a class="nav-link" href="{{ route('product.index') }}">Products</a>
                     </li>
                 </ul>
             </div>
@@ -51,18 +51,17 @@ use App\Classes\CustomHelpers;
         @else
         <div class="container">
             <div class="nav-not-auth">
-                <a href="{{ route('login.showLoginForm')}}" type="submit">
+                <a href="{{ route('login.index')}}" type="submit">
                     <button class="btn m-1 btn-sm">Sign In</button>
                 </a>
-                <a href="{{ route('register.showRegistrationForm')}}" type="submit">
+                <a href="{{ route('register.index')}}" type="submit">
                     <button class="btn m-1 btn-sm">Sign Up</button>
                 </a>
             </div>
         </div>
         @endif
     </nav>
-
-    <main class="container-fluid">
+    <div class="wrapper">
         @if ($errors->any())
         <div id="error-messages" class="alert alert-danger text-center">
             @foreach ($errors->all() as $error)
@@ -70,13 +69,10 @@ use App\Classes\CustomHelpers;
             @endforeach
         </div>
         @endif
-
         <div class="container">
             @yield('content')
         </div>
-
-    </main>
-
+    </div>
     <!-- FOOTER -->
     <footer class="bg-dark">
         <div class="text-center p-3 text-white" style="background-color: rgba(0, 0, 0, 0.2);">
@@ -87,8 +83,9 @@ use App\Classes\CustomHelpers;
         </div>
     </footer>
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"> </script>
+
+
 </body>
 
 </html>

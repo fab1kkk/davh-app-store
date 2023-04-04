@@ -11,7 +11,7 @@ use Illuminate\View\View;
 
 class RegisterController extends Controller
 {
-    public function showRegistrationForm(): View
+    public function index(): View
     {
         $viewData = [
             'title' => "Join " . CustomHelpers::getAppName()
@@ -34,6 +34,6 @@ class RegisterController extends Controller
         $user->password = Hash::make($validated['password']);
         $user->save();
 
-        return redirect()->route('home')->with('success_form', "Account has been created.");
+        return redirect()->route('home.index')->with('success_form', "Account has been created.");
     }
 }

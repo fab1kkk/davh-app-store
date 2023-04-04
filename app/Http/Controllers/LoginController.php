@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function showLoginForm(): View
+    public function index(): View
     {
         $viewData = [
             'title' => 'Sign in ' . CustomHelpers::getAppName(),
@@ -28,7 +28,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->route('home')->with('success_form', "Logged in.");
+            return redirect()->route('home.index')->with('success_form', "Logged in.");
         }
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
@@ -42,6 +42,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('home');
+        return redirect()->route('home.index');
     }
 }

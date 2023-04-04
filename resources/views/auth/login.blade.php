@@ -9,7 +9,7 @@
         @csrf
         <div class="form-group">
             <label for="email">Email</label>
-            <input id="email" type="email" name="email"required>
+            <input id="email" type="email" name="email" required>
         </div>
         <div class="form-group">
             <label for="password">Password </label>

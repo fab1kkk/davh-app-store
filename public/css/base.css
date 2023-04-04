@@ -1,22 +1,40 @@
 html,
 body {
     background: linear-gradient(90deg, #fcc5ce, #ffc3a0);
+    height: 100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+.container {
+    flex: 1;
+    padding-top: 15px;
 }
 
 .navbar {
-    padding-top: 5px;
-    border-bottom: 3px solid;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    height: fit-content;
+    min-height: 100px;
+    border-bottom: 4px solid;
     border-color: rgba(255, 255, 255, 0.1);
     font-size: 20px;
 }
 
 footer {
-    flex-shrink: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     font-size: 10px;
     font-style: italic;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
 }
 
 .foot-git {
@@ -50,7 +68,10 @@ footer {
     color: white !important;
     width: 65px;
 }
-
+.products
+{
+    width: fit-content;
+}
 .btn:hover {
     background-color: #fab38a !important;
     transition: all 0.3s ease;
@@ -60,5 +81,25 @@ footer {
 .container .form-control {
     border-radius: 5px !important;
     height: 30px !important;
-    margin-top: 5px;
 }
+
+.loading {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #e00909;
+    border-radius: 20%;
+    animation: spin 1.2s ease-in-out infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .hide {
+    display: none;
+  }
