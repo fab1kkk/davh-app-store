@@ -1,5 +1,4 @@
 @extends('layout/base')
-
 <link rel="stylesheet" type="text/css" href="{{ asset('css/auth/auth.css') }}">
 @section('title', $title)
 
@@ -18,6 +17,7 @@
         <div class="form-group">
             <button class="btn" type="submit">Log In</button>
         </div>
+        <a href="{{ route('register.index') }}" class="reg-link"><span class="reg-span">Don't have an account yet?</span></a>
     </form>
 </div>
 @endsection

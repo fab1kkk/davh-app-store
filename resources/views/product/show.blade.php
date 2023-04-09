@@ -13,7 +13,7 @@
                     {{$product['name']}} ({{$product['price']}} zł)
                 </h5>
                 <p class="card-text">{{$product['description']}}</p>
-                <button type="submit" class="cart btn w-auto">Add to cart</button>
+                <button type="submit" class="btn cart w-auto">Add to cart</button>
             </div>
         </div>
     </div>

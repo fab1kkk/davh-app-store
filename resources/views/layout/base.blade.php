@@ -10,6 +10,7 @@ use App\Classes\CustomHelpers;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/base.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <title>@yield('title', 'Online Store')</title>
 </head>
 
@@ -44,20 +45,15 @@ use App\Classes\CustomHelpers;
                     <a href="#" class="header-profile-dropdown-toggle">
                         <img class="header-profile" src="{{ asset('static/img/profile.png') }}" alt="profile icon">
                     </a>
-                    <button class="btn m-1 btn-sm" type="submit">Logout</button>
+                    <button class="nav-btn" type="submit">Logout</button>
                 </div>
             </form>
         </div>
         @else
         <div class="container">
-            <div class="nav-not-auth">
-                <a href="{{ route('login.index')}}" type="submit">
-                    <button class="btn m-1 btn-sm">Sign In</button>
-                </a>
-                <a href="{{ route('register.index')}}" type="submit">
-                    <button class="btn m-1 btn-sm">Sign Up</button>
-                </a>
-            </div>
+            <a href="{{ route('login.index')}}">
+                <button class="nav-btn" id="login-btn">Sign In</button>
+            </a>
         </div>
         @endif
     </nav>
@@ -86,9 +82,25 @@ use App\Classes\CustomHelpers;
         </div>
     </footer>
 
+    <script>
+        $(function() {
+            var path = window.location.href;
+            $('#navbarSupportedContent a').each(function() {
+                if (this.href === path) {
+                    $(this).addClass('active');
+                }
+            });
+        });
+        $(document).ready(function() {
+            var path = window.location.href;
+            if ($('#login-btn').parent().attr('href') === path) {
+                $('#login-btn').addClass('active');
+            }
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"> </script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 
 </body>
 

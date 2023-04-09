@@ -1,75 +1,46 @@
 @extends('layout/base')
 @section('title', $title)
-
 @section('content')
 
-<div class="container">
-
-    <div class="row">
-        <div class="col-lg-4">
-            <div class="image text-center" >
-                <img class="rounded-circle" src="{{ asset('static/img/homepage/quality.png') }}" alt="Generic placeholder image" width="180" height="180">
-            </div>
-            <h2>Quality</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-            <p><a class="btn btn-secondary w-auto" href="#" role="button">View details &raquo;</a></p>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="image text-center">
+            <img class="img fluid rounded-circle" src="{{ asset('static/img/homepage/carpenter_highlight.png') }}" alt="Generic placeholder image" width="200" height="200">
         </div>
-        <div class="col-lg-4">
-            <div class="image text-center">
-                <img class="rounded-circle" src="{{ asset('static/img/homepage/modern.png') }}" alt="Generic placeholder image" width="180" height="180">
-            </div>
-            <h2>Design</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-            <p><a class="btn btn-secondary w-auto" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-lg-4">
-            <div class="image text-center">
-                <img class="rounded-circle" src="{{ asset('static/img/homepage/comfort.png') }}" alt="Generic placeholder image" width="180" height="180">
-            </div>
-            <h2>Comfort</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-            <p><a class="btn btn-secondary w-auto" href="#" role="button">View details &raquo;</a></p>
-        </div>
+        <h2>Jakość</h2>
+        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+        <p><a class="btn btn-secondary w-auto" href="#" role="button">View details &raquo;</a></p>
     </div>
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    <div class="col-lg-4">
+        <div class="image text-center">
+            <img class="img fluid rounded-circle" src="{{ asset('static/img/homepage/bed_highlight.jpg') }}" alt="Generic placeholder image" width="200" height="200">
         </div>
-        <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" src="{{ asset('static/img/product/bed.png') }}" alt="Generic placeholder image">
-        </div>
+        <h2>Wygląd</h2>
+        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+        <p><a class="btn btn-secondary w-auto" href="#" role="button">View details &raquo;</a></p>
     </div>
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-        <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    <div class="col-lg-4">
+        <div class="image text-center">
+            <img class="img fluid rounded-circle" src="{{ asset('static/img/homepage/wakingup_highlight.jpg') }}" alt="Generic placeholder image" width="200" height="200">
         </div>
-        <div class="col-md-5 order-md-1">
-            <img class="featurette-image img-fluid mx-auto" src="{{ asset('static/img/product/table.png') }}" alt="Generic placeholder image">
-        </div>
+        <h2>Wygoda</h2>
+        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+        <p><a class="btn btn-secondary w-auto" href="#" role="button">View details &raquo;</a></p>
     </div>
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" src="{{ asset('static/img/product/chair.png') }}" alt="Generic placeholder image">
-        </div>
-    </div>
-
-    <hr class="featurette-divider">
-
-
 </div>
+
+<hr class="featurette-divider">
+
+<div class="row featurette">
+    <div class="col-md-7">
+        <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    </div>
+    <div class="col-md-5">
+        <img class="featurette-image img-fluid mx-auto" src="{{ asset('static/img/homepage/bed_article.png') }}" alt="Generic placeholder image">
+    </div>
+</div>
+
+<hr class="featurette-divider">
+
 @endsection

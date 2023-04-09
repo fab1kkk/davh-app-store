@@ -39,3 +39,17 @@ label {
     width: inherit;
     font-size: 14px;
 }
+
+.reg-link {
+    display: block;
+    text-align: center;
+    margin-top: 6px;
+    font-size: 14px;
+    color: #666;
+    text-decoration: none;
+  }
+  
+  .reg-span {
+    font-weight: bold;
+    color: #333;
+  }
