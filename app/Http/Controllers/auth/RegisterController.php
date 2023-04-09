@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\auth;
 
+use App\Http\Controllers\Controller;
 use App\Classes\CustomHelpers;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\products;
 
+use App\Http\Controllers\Controller;
 use Illuminate\View\View;
 
 class ProductController extends Controller
@@ -25,7 +26,7 @@ class ProductController extends Controller
 
     public function show($id): View
     {
-        $product = ProductController::$products[$id-1];
+        $product = ProductController::$products[$id - 1];
         $viewData = [
             'title' => $product['name'] . ' - ' . $product['description'],
             'product' => $product
