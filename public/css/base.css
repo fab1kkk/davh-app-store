@@ -66,21 +66,25 @@ footer {
     background: none;
     border: none;
     border-left: 4px solid;
-    border-color: silver;
+    border-color: #f87a31;
     font-size: 18px;
     margin-left: 10px;
     padding-left: 10px;
-    color:rgba(255,255,255,.55);
+    color: rgba(255, 255, 255, .7);
+    transition: 0.3s ease-in-out;
 }
 
 .nav-btn:hover {
-    color: rgba(255,255,255,.75);
-    border-color: #f87a31
-}
-#login-btn.active{
+    color: rgba(255, 255, 255, .9);
     border-color: #f87a31;
-    color:white;
+    border-width: 9px;
 }
+
+#login-btn.active {
+    border-color: #f87a31;
+    color: white;
+}
+
 .btn {
     border-radius: 10px !important;
     border: #ffafbd !important;
@@ -90,9 +94,7 @@ footer {
 }
 
 .btn:hover {
-    background-color: #2b2a2a !important;
-    transition: all 0.3s ease;
-    transform: scale(1.07);
+    background-color: #1b1b1b !important;
 }
 
 .container .form-control {
