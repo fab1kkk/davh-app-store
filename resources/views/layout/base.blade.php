@@ -27,7 +27,7 @@ use App\Classes\CustomHelpers;
                         <a class="nav-link" href="{{ route('home.index') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('product.index') }}">Products</a>
+                        <a class="nav-link" href="{{ route('category.index') }}">Oferta</a>
                     </li>
                 </ul>
             </div>
