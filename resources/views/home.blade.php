@@ -7,7 +7,7 @@
         <div class="image text-center">
             <img class="img fluid rounded-circle" src="{{ asset('static/img/homepage/carpenter_highlight.png') }}" alt="Generic placeholder image" width="200" height="200">
         </div>
-        <h2>Jakość</h2>
+        <h2>Heading</h2>
         <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
         <p><a class="btn btn-secondary w-auto" href="#" role="button">View details &raquo;</a></p>
     </div>
@@ -15,7 +15,7 @@
         <div class="image text-center">
             <img class="img fluid rounded-circle" src="{{ asset('static/img/homepage/bed_highlight.jpg') }}" alt="Generic placeholder image" width="200" height="200">
         </div>
-        <h2>Wygląd</h2>
+        <h2>Heading</h2>
         <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
         <p><a class="btn btn-secondary w-auto" href="#" role="button">View details &raquo;</a></p>
     </div>
@@ -23,7 +23,7 @@
         <div class="image text-center">
             <img class="img fluid rounded-circle" src="{{ asset('static/img/homepage/wakingup_highlight.jpg') }}" alt="Generic placeholder image" width="200" height="200">
         </div>
-        <h2>Wygoda</h2>
+        <h2>Heading</h2>
         <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
         <p><a class="btn btn-secondary w-auto" href="#" role="button">View details &raquo;</a></p>
     </div>

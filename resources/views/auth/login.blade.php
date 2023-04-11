@@ -1,8 +1,12 @@
 @extends('layout/base')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/auth/auth.css') }}">
 @section('title', $title)
-
 @section('content')
+@if(session('success_form'))
+<div class="alert alert-success text-center">
+    {{session('success_form')}}
+</div>
+@endif
 <div class="login">
     <form class="login-form" action="{{ route('login.login')}}" method="post">
         @csrf
