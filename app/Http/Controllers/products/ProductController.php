@@ -15,7 +15,7 @@ class ProductController extends Controller
             'products' => Product::all(),
         ];
 
-        return view('product.index')->with($viewData);
+        return view('product.products.index')->with($viewData);
     }
 
     public function show($id): View
@@ -26,6 +26,6 @@ class ProductController extends Controller
             'product' => $product
         ];
 
-        return view('product.show')->with($viewData);
+        return view('product.products.show')->with($viewData);
     }
 }

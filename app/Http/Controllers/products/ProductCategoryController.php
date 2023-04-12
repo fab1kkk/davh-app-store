@@ -14,6 +14,14 @@ class ProductCategoryController extends Controller
             'categories' => ProductCategory::all(),
         ];
 
-        return view('product.categories')->with($viewData);
+        return view('product.categories.index')->with($viewData);
+    }
+
+    public function show($id): View
+    {
+        $viewdata = [
+            'category' => ProductCategory::findOrFail($id),
+        ];
+        return view('');
     }
 }
