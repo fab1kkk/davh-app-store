@@ -3,12 +3,12 @@
 <link rel="stylesheet" href="{{asset('css/product/index.css')}}">
 
 <div class="row">
-    @foreach($categories as $category)
+    @foreach($products as $product)
     <div class="col-md-4 col-lg-3 mb-2">
         <div class="card">
-            <img src="{{ asset('static/img/product/categories/'.$category['image']) }}" alt="image" class="card-img-top">
+            <img src="{{ asset('static/img/product/categories/'.$product['image']) }}" alt="image" class="card-img-top">
             <div class="card-body text-center">
-                <a href="{{ route('product.showAllPerCategory', ['id' => $category['id']]) }}" class="btn products">{{ $category['name'] }}</a>
+                <a href="{{ route('product.showEach', ['id' => $product['id']]) }}" class="btn products">{{ $product['name'] }}</a>
             </div>
         </div>
     </div>

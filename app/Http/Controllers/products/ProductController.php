@@ -18,7 +18,7 @@ class ProductController extends Controller
         return view('product.products.index')->with($viewData);
     }
 
-    public function show($id): View
+    public function showEach($id): View
     {
         $product = Product::findOrFail($id);
         $viewData = [
@@ -26,6 +26,16 @@ class ProductController extends Controller
             'product' => $product
         ];
 
-        return view('product.products.show')->with($viewData);
+        return view('product.products.show_each')->with($viewData);
+    }
+
+    public function showAllPerCategory($id): View
+    {
+        $products = Product::all()->where('product_categories_id', $id);
+        $viewData = [
+            'products' => $products,
+        ];
+
+        return view('product.products.show_per_category')->with($viewData);
     }
 }
