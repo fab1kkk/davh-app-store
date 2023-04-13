@@ -30,5 +30,5 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register.s
 Route::get('/categories', [ProductCategoryController::class, 'index'])->name('category.index');
 
 Route::get('/products', [ProductController::class, 'index'])->name('product.index');
-Route::get('/products/{id}', [ProductController::class, 'showEach'])->name('product.showEach');
-Route::get('/products/category/{id}', [ProductController::class, 'showAllPerCategory'])->name('product.showAllPerCategory');
+Route::get('/product/{name}', [ProductController::class, 'showEach'])->name('product.showEach');
+Route::get('/categories/{categoryName}/products', [ProductController::class, 'showAllPerCategory'])->name('product.showAllPerCategory');

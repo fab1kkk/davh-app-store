@@ -8,7 +8,7 @@
         <div class="card">
             <img src="{{ asset('static/img/product/categories/'.$category['image']) }}" alt="image" class="card-img-top">
             <div class="card-body text-center">
-                <a href="{{ route('product.showAllPerCategory', ['id' => $category['id']]) }}" class="btn products">{{ $category['name'] }}</a>
+                <a href="{{ route('product.showAllPerCategory', ['categoryName' => $category['name']]) }}" class="btn products">{{ mb_convert_case($category['name'],MB_CASE_TITLE, "UTF-8") }}</a>
             </div>
         </div>
     </div>

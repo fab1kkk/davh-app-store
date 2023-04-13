@@ -14,6 +14,7 @@ class ProductCategoryController extends Controller
     {
         $viewData = [
             'categories' => ProductCategory::all(),
+            
         ];
 
         return view('product.categories.index')->with($viewData);
