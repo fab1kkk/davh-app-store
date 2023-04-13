@@ -8,7 +8,7 @@
         <div class="card">
             <img src="{{ asset('static/img/product/categories/'.$product->image) }}" alt="image" class="card-img-top">
             <div class="card-body text-center">
-                <a href="{{ route('product.showEach', ['name' => $product->name]) }}" class="btn products">{{ $product->name }}</a>
+                <a href="{{ route('product.showEach', ['product' => $product->name]) }}" class="btn products">{{ $product->name }}</a>
             </div>
         </div>
     </div>

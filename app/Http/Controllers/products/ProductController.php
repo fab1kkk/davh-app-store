@@ -19,16 +19,6 @@ class ProductController extends Controller
         return view('product.products.index')->with($viewData);
     }
 
-    public function showEach($name): View
-    {
-        $product = Product::where('name', $name)->firstOrFail();
-        $viewData = [
-            'title' => $product->name . ' - ' . $product->description,
-            'product' => $product
-        ];
-
-        return view('product.products.show_each')->with($viewData);
-    }
 
     public function showAllPerCategory($name): View
     {
@@ -39,5 +29,15 @@ class ProductController extends Controller
         ];
 
         return view('product.products.show_per_category')->with($viewData);
+    }
+
+    public function showEach(Product $product): View
+    {
+        $viewData = [
+            'title' => $product->name,
+            'product' => $product
+        ];
+
+        return view('product.products.show_each')->with($viewData);
     }
 }

@@ -10,16 +10,8 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected static function boot()
+    public function getRouteKeyName()
     {
-        parent::boot();
-
-        static::creating(function ($product) {
-            $product->slug = Str::slug($product->name);
-        });
-
-        static::updating(function ($product) {
-            $product->slug = Str::slug($product->name);
-        });
+        return 'name';
     }
 }
