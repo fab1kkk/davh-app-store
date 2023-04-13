@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\View\View;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -20,9 +21,8 @@ class ProductController extends Controller
     }
 
 
-    public function showAllPerCategory($name): View
+    public function showAllPerCategory(ProductCategory $category): View
     {
-        $category = ProductCategory::where('name', $name)->firstorFail();
         $products = Product::where('product_categories_id', $category->id)->get();
         $viewData = [
             'products' => $products,

@@ -10,11 +10,10 @@ use Illuminate\View\View;
 class ProductCategoryController extends Controller
 {
     //
-    public function index(): View
+    public function index(ProductCategory $categories): View
     {
         $viewData = [
-            'categories' => ProductCategory::all(),
-            
+            'categories' => $categories->all(),
         ];
 
         return view('product.categories.index')->with($viewData);
