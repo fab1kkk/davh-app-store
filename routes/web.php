@@ -28,7 +28,6 @@ Route::get('/register', [RegisterController::class, 'index'])->name('register.in
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
 Route::get('/categories', [ProductCategoryController::class, 'index'])->name('category.index');
-Route::get('/categories/{id}', [ProductCategoryController::class, 'show'])->name('category.show');
 
 Route::get('/products', [ProductController::class, 'index'])->name('product.index');
 Route::get('/products/{id}', [ProductController::class, 'showEach'])->name('product.showEach');
