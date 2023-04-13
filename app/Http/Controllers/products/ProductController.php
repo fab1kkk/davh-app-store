@@ -6,15 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\View\View;
-use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
-    public function index(): View
+    public function index(Product $product): View
     {
         $viewData = [
             'title' => 'Browse our products',
-            'products' => Product::all(),
+            'products' => $product->all()
         ];
 
         return view('product.products.index')->with($viewData);
