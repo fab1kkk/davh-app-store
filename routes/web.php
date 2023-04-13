@@ -31,4 +31,4 @@ Route::get('/categories', [ProductCategoryController::class, 'index'])->name('ca
 
 Route::get('/products', [ProductController::class, 'index'])->name('product.index');
 Route::get('/product/{product:slug}', [ProductController::class, 'showEach'])->name('product.showEach');
-Route::get('/categories/{category}/products', [ProductController::class, 'showAllPerCategory'])->name('product.showAllPerCategory');
+Route::get('/categories/{category:slug}/products', [ProductController::class, 'showAllPerCategory'])->name('product.showAllPerCategory');

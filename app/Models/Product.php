@@ -13,12 +13,8 @@ class Product extends Model
     protected $fillable = [
         'name',
         'description',
+        'image',
         'price',
         'slug'
     ];
-
-    // public function getRouteKeyName()
-    // {
-    //     return 'slug';
-    // }
 }
