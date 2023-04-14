@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
@@ -32,3 +33,8 @@ Route::get('/categories', [ProductCategoryController::class, 'index'])->name('ca
 Route::get('/products', [ProductController::class, 'index'])->name('product.index');
 Route::get('/product/{product:slug}', [ProductController::class, 'showEach'])->name('product.showEach');
 Route::get('/categories/{category:slug}/products', [ProductController::class, 'showAllPerCategory'])->name('product.showAllPerCategory');
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('index');
+    Route::post('/', [AdminController::class, 'login'])->name('login');
+});
