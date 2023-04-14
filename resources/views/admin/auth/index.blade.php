@@ -20,12 +20,21 @@
             </div>
             <div>
                 <label class="block text-gray-700 font-semibold mb-2" for="email">Password</label>
-                <input class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-gray-800" type="email" name="email" id="email" required>
+                <input class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-gray-800" type="password" name="password" id="password" required>
             </div>
             <div>
                 <button class="w-full text-center bg-sky-600 rounded-md py-2 px-4 font-medium text-white hover:bg-sky-700">
                     Sign In
                 </button>
+            </div>
+            <div>
+                @if ($errors->any())
+                <div class="text-black text-center text-md font-bold">
+                    @foreach ($errors->all() as $error)
+                    <span id="error">{{ $error }}</span>
+                    @endforeach
+                </div>
+                @endif
             </div>
         </form>
     </div>
