@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\panel\AdminDashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
@@ -37,4 +38,8 @@ Route::get('/categories/{category:slug}/products', [ProductController::class, 's
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('index');
     Route::post('/', [AdminController::class, 'login'])->name('login');
+});
+
+Route::prefix('admin')->name('admin.dashboard.')->group(function () {
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('index');
 });
