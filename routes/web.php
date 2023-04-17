@@ -22,11 +22,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
-Route::get('/login', [LoginController::class, 'index'])->name('login.index');
+Route::get('/login', [LoginController::class, 'index'])->middleware('logoutifauthenticatedmiddleware')->name('login.index');
 Route::post('/login', [LoginController::class, 'login'])->name('login.login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('login.logout');
 
-Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
+Route::get('/register', [RegisterController::class, 'index'])->middleware('logoutifauthenticatedmiddleware')->name('register.index');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
 Route::get('/categories', [ProductCategoryController::class, 'index'])->name('category.index');
@@ -35,6 +35,6 @@ Route::get('/products', [ProductController::class, 'index'])->name('product.inde
 Route::get('/product/{product:slug}', [ProductController::class, 'showEach'])->name('product.showEach');
 Route::get('/categories/{category:slug}/products', [ProductController::class, 'showAllPerCategory'])->name('product.showAllPerCategory');
 
-Route::prefix('admin')->name('admin.dashboard.')->group(function () {
+Route::prefix('admin')->middleware('admin')->name('admin.dashboard.')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
 });
