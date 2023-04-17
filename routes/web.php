@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\admin\AdminController;
-use App\Http\Controllers\admin\panel\AdminDashboardController;
+use App\Http\Controllers\admin\auth\AuthController;
+use App\Http\Controllers\admin\panel\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
@@ -35,11 +35,6 @@ Route::get('/products', [ProductController::class, 'index'])->name('product.inde
 Route::get('/product/{product:slug}', [ProductController::class, 'showEach'])->name('product.showEach');
 Route::get('/categories/{category:slug}/products', [ProductController::class, 'showAllPerCategory'])->name('product.showAllPerCategory');
 
-Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('/', [AdminController::class, 'index'])->name('index');
-    Route::post('/', [AdminController::class, 'login'])->name('login');
-});
-
 Route::prefix('admin')->name('admin.dashboard.')->group(function () {
-    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('index');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
 });
