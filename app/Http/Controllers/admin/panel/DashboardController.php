@@ -15,10 +15,11 @@ class DashboardController extends Controller
     {
         $viewdata = [
             'users' => User::all(),
-            'currentUser' => ucwords(substr(Auth::user()->name, 0, strpos(Auth::user()->name, "@"))),
             'title' => "Admin Dashboard Panel - manage your products, user and more!"
         ];
 
         return view('admin.panel.index')->with($viewdata);
     }
+
+
 }
