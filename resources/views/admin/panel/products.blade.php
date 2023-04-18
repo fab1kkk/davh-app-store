@@ -1,5 +1,7 @@
 @extends('admin/panel/index')
 
 @section('content')
-<p>eee</p>
+<div class="p-4">
+        <p>{{ $products }}</p>
+</div>
 @endsection

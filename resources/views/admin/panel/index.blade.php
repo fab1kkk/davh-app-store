@@ -10,13 +10,10 @@
 </head>
 
 <body>
-    <div class="flex h-screen">
+    <div class="flex">
         <!-- sidebar -->
-        <div class="flex flex-col h-screen w-52 bg-gradient-to-br from-green-400 to-lime-400">
-            <div class="p-28 flex items-center justify-center">
-                <img src="{{ asset('static/img/profile.png') }}" alt="Logo" class="h-16 mb-4">
-            </div>
-            <ul>
+        <div class="fixed h-full w-52 bg-gradient-to-br from-gray-700 to-gray-800">
+            <ul class="py-52">
                 <li class="p-1 mb-1 flex hover:bg-lime-600 {{ Route::is('admin.dashboard.index') ? 'bg-lime-600' : ''}}">
                     <a href="{{route('admin.dashboard.index')}}" class="text-white font-semibold text-xl w-full h-full flex items-center justify-center p-1 m-2 hover:border-l-4 border-l-lime-700">Home </a>
                 </li>
@@ -37,18 +34,17 @@
                 </li>
             </ul>
         </div>
-
         <!-- topbar -->
-        <div class="flex flex-1 flex-col h-56">
-            <div class="flex-row h-56 min-h-full bg-gray-50 flex items-center">
+        <div class="flex flex-1 flex-col h-40 ml-52">
+            <div class="flex-row h-56 min-h-full bg-gray-100 flex items-center">
                 <p class="font-serif text-3xl font-semibold ml-8 mt-20">Hello, {{ $currentUser }}</p>
             </div>
-
             <!-- Content goes here -->
             @yield('content')
-
+            <!-- Content -->
         </div>
     </div>
+
 </body>
 
 </html>
