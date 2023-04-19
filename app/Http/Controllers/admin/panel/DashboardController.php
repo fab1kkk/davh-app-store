@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin\panel;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,8 +15,8 @@ class DashboardController extends Controller
     public function index(): View
     {
         $viewdata = [
+            'title' => "Admin Dashboard Panel - manage your products, user and more!",
             'users' => User::all(),
-            'title' => "Admin Dashboard Panel - manage your products, user and more!"
         ];
 
         return view('admin.panel.index')->with($viewdata);
