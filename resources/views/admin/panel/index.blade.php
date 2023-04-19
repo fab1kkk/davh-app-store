@@ -10,8 +10,9 @@
 </head>
 
 <body>
+
     <!-- sidebar -->
-    <div class="fixed h-full w-52 bg-gray-800">
+    <div id="menu" class="fixed h-full w-52 bg-gray-800">
         <ul class="py-52">
             <li class="p-1 mb-1 flex hover:bg-green-700 {{ Route::is('admin.dashboard.index') ? 'bg-green-700' : ''}}">
                 <a href="{{route('admin.dashboard.index')}}" class="text-white font-semibold text-xl w-full h-full flex items-center justify-center p-1 m-2 hover:border-l-4 border-l-lime-400">Home </a>
@@ -33,29 +34,42 @@
             </li>
         </ul>
     </div>
+
     <!-- topbar -->
-    <div class="flex h-40 ml-52 bg-green-700 shadow-lg text-white md:text-2xl sm:text-xl">
-        <div class="flex items-end pb-10 basis-1/4">
-            <p class="ml-8">Hello, {{ $currentUser }}</p>
+    <div class="grid grid-cols-1 md:grid-cols-4 h-fit md:h-40 ml-52 bg-green-700 shadow-lg text-white md:text-2xl sm:text-xl">
+        <div class="flex items-end pb-2 md:pb-8 text-black font-bold">
+            <p class="ml-2 md:ml-8">Hello, {{ $currentUser }}</p>
         </div>
-        <div class="flex items-end pb-10 basis-1/6">
-            <p class="ml-8">Registered users: {{$totalUsers}}</p>
+        <div class="flex items-end pb-2 md:pb-8">
+            <p class="ml-2 md:ml-8">Registered users: {{$totalUsers}}</p>
         </div>
-        <div class="flex items-end pb-10 mr-10 justify-center w-64">
-            <p class="ml-8">Total Products: {{$totalProducts}}</p>
+        <div class="flex items-end pb-2 md:pb-8">
+            <p class="ml-2 md:ml-8">Total Products: {{$totalProducts}}</p>
         </div>
-        <div class="flex flex-col items-start justify-center ml-24 md:text-xl sm:text-sm">
-            <p class="mb-3">Beds: {{$totalBeds}}</p>
-            <p class="mb-3">Mattresses: {{$totalMattresses}}</p>
-            <p class="mb-3">Sofas: {{$totalSofas}}</p>
-            <p class="mb-3">Armchairs: {{$totalArmChairs}}</p>
+        <div class="flex flex-col items-start justify-center md:text-xl sm:text-sm">
+            <p class="mb-0 ml-2 md:ml-0 md:mb-1">Beds: {{$totalBeds}}</p>
+            <p class="mb-0 ml-2 md:ml-0 md:mb-1">Mattresses: {{$totalMattresses}}</p>
+            <p class="mb-0 ml-2 md:ml-0 md:mb-1">Sofas: {{$totalSofas}}</p>
+            <p class="mb-0 ml-2 md:ml-0 md:mb-1">Armchairs: {{$totalArmChairs}}</p>
         </div>
     </div>
+
+
     <!-- Content goes here -->
     <div class="ml-52 p-4">
         @yield('content')
     </div>
     <!-- Content -->
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('-left-52');
+        });
+    </script>
+
 </body>
 
 </html>
