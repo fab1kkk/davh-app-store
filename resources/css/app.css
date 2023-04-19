@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+#menu-toggle:focus {
+    outline: none;
+}
+
+#menu-toggle svg {
+    transition: all 0.2s ease-in-out;
+}
+
+#menu-toggle svg:hover {
+    transform: scale(1.2);
+}
