@@ -26,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
         View::composer('*', function ($view) {
             if (Auth::check()) {
                 $currentUser = ucwords(substr(Auth::user()->name, 0, strpos(Auth::user()->name, "@")));
+            } else {
+                $currentUser = null;
             }
             $viewData = [
                 'currentUser' => $currentUser,

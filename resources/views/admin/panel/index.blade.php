@@ -37,7 +37,7 @@
 
     <!-- topbar -->
     <div class="grid grid-cols-1 md:grid-cols-4 h-fit md:h-40 md:ml-52 ml-40 transition-all duration-300 ease-in-out bg-green-700 shadow-lg text-white md:text-2xl sm:text-xl">
-        <div class="flex items-end pb-2 md:pb-8 text-black font-bold">
+        <div class="flex items-end pb-2 md:pb-8 text-gray-800 font-bold">
             <p class="ml-2 md:ml-8">Hello, {{ $currentUser }}</p>
         </div>
         <div class="flex items-end pb-2 md:pb-8">
@@ -46,7 +46,7 @@
         <div class="flex items-end pb-2 md:pb-8">
             <p class="ml-2 md:ml-8">Total Products: {{$totalProducts}}</p>
         </div>
-        <div class="flex flex-col items-start justify-center md:text-xl text-sm pb-2">
+        <div class="flex flex-col items-start justify-center md:text-xl text-sm pb-2 pt-2">
             <p class="mb-0 ml-2 md:ml-0 md:mb-1">Beds: {{$totalBeds}}</p>
             <p class="mb-0 ml-2 md:ml-0 md:mb-1">Mattresses: {{$totalMattresses}}</p>
             <p class="mb-0 ml-2 md:ml-0 md:mb-1">Sofas: {{$totalSofas}}</p>
