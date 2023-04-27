@@ -8,6 +8,7 @@ use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
 use App\Http\Controllers\products\ProductCategoryController;
 use App\Http\Controllers\products\ProductController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+
+Route::get('/find', [SearchController::class, 'index'])->name('search.index');
 
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login.index');
 Route::post('/login', [LoginController::class, 'login'])->name('login.login');

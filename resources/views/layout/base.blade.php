@@ -34,8 +34,8 @@ use App\Classes\CustomHelpers;
         </div>
 
         <div class="container">
-            <form action="#" method="get">
-                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+            <form id="myForm" action="{{ route('search.index') }}" method="get">
+                <input id="search-bar" class="form-control" name="q" value="{{request('q')}}" type="text" placeholder="Search">
             </form>
 
         </div>
@@ -106,8 +106,15 @@ use App\Classes\CustomHelpers;
                 $('#login-btn').addClass('active');
             }
         });
-    </script>
 
+        const form = document.getElementById('myForm');
+        form.addEventListener('submit', function(event) {
+            const searchBar = document.getElementById('search-bar');
+            if (searchBar.value === '') {
+                event.preventDefault();
+            }
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"> </script>
 
 

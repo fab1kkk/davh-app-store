@@ -17,4 +17,16 @@ class Product extends Model
         'price',
         'slug'
     ];
+
+    public function scopeFilter($query, array $filters)
+    {
+        if (empty($filters['q'])) {
+            return $query;
+        }
+        $query->when($filters['q'] ?? false, function ($query, $search) {
+            $query
+                ->where('name', 'like', '%' . $search . '%')
+                ->orWhere('description', 'like', '%' . $search . '%');
+        });
+    }
 }

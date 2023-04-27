@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\View\View;
-use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -40,4 +39,5 @@ class ProductController extends Controller
 
         return view('product.products.show_each')->with($viewData);
     }
+
 }
