@@ -13,7 +13,7 @@ class ProductController extends Controller
     {
         $viewData = [
             'title' => 'Manage your products',
-            'products' => $products->all()
+            'products' => $products->paginate(3)
         ];
         return view('admin.panel.products')->with($viewData);
     }

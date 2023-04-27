@@ -34,7 +34,10 @@ use App\Classes\CustomHelpers;
         </div>
 
         <div class="container">
-            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+            <form action="#" method="get">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+            </form>
+
         </div>
 
         @if (auth()->check())

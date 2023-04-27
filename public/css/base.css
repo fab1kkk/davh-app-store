@@ -99,9 +99,11 @@ footer {
 
 .container .form-control {
     border-radius: 5px !important;
-    height: 30px !important;
+    height: 35px !important;
 }
-
+.container form{
+    width: 100% !important;
+}
 .container a {
     text-decoration: none;
 }

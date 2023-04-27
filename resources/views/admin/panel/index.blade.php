@@ -46,7 +46,7 @@
         <div class="flex items-end pb-2 md:pb-8">
             <p class="ml-2 md:ml-8">Total Products: {{$totalProducts}}</p>
         </div>
-        <div class="flex flex-col items-start justify-center md:text-xl text-sm pb-2 pt-2">
+        <div class="flex flex-col items-start justify-center md:text-xl text-sm mb-6">
             <p class="mb-0 ml-2 md:ml-0 md:mb-1">Beds: {{$totalBeds}}</p>
             <p class="mb-0 ml-2 md:ml-0 md:mb-1">Mattresses: {{$totalMattresses}}</p>
             <p class="mb-0 ml-2 md:ml-0 md:mb-1">Sofas: {{$totalSofas}}</p>
@@ -56,7 +56,7 @@
 
 
     <!-- Content goes here -->
-    <div class="ml-40 md:ml-52 p-4 md">
+    <div class="ml-40 md:ml-52 p-4">
         @yield('content')
     </div>
     <!-- Content -->
