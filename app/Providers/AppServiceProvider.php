@@ -34,10 +34,6 @@ class AppServiceProvider extends ServiceProvider
                 'currentUser' => $currentUser,
                 'totalUsers' => count(User::all()),
                 'totalProducts' => count(Product::all()),
-                'totalBeds' => count(Product::all()->where('product_categories_id', 1)),
-                'totalMattresses' => count(Product::all()->where('product_categories_id', 2)),
-                'totalSofas' => count(Product::all()->where('product_categories_id', 3)),
-                'totalArmChairs' => count(Product::all()->where('product_categories_id', 4)),
             ];
 
             $view->with($viewData);

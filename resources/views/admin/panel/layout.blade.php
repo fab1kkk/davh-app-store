@@ -12,7 +12,7 @@
 <body>
 
     <!-- sidebar -->
-    <div id="menu" class="fixed h-full bg-gray-800 md:w-52 w-40 transition-all duration-300 ease-in-out">
+    <div id="menu" class="fixed h-full bg-gray-900 md:w-52 w-40 transition-all duration-300 ease-in-out">
         <ul class="py-52">
             <li class="p-1 mb-1 flex hover:bg-green-700 {{ Route::is('admin.dashboard.index') ? 'bg-green-700' : ''}}">
                 <a href="{{route('admin.dashboard.index')}}" class="text-white font-semibold text-xl w-full h-full flex items-center justify-center p-1 m-2 hover:border-l-4 border-l-lime-400">Home </a>
@@ -36,21 +36,15 @@
     </div>
 
     <!-- topbar -->
-    <div class="grid grid-cols-1 md:grid-cols-4 h-fit md:h-40 md:ml-52 ml-40 transition-all duration-300 ease-in-out bg-green-700 shadow-lg text-white md:text-2xl sm:text-xl">
+    <div class="grid grid-cols-1 md:grid-cols-4 h-fit md:h-40 md:ml-52 ml-40 transition-all duration-300 ease-in-out bg- shadow-lg text-black md:text-2xl sm:text-xl">
         <div class="flex items-end pb-2 md:pb-8 text-gray-800 font-bold">
-            <p class="ml-2 md:ml-8">Hello, {{ $currentUser }}</p>
+            <p class="ml-2 lg:ml-8">Hello, {{ $currentUser }}</p>
         </div>
         <div class="flex items-end pb-2 md:pb-8">
             <p class="ml-2 md:ml-8">Registered users: {{$totalUsers}}</p>
         </div>
         <div class="flex items-end pb-2 md:pb-8">
             <p class="ml-2 md:ml-8">Total Products: {{$totalProducts}}</p>
-        </div>
-        <div class="flex flex-col items-start justify-center md:text-xl text-sm mb-6">
-            <p class="mb-0 ml-2 md:ml-0 md:mb-1">Beds: {{$totalBeds}}</p>
-            <p class="mb-0 ml-2 md:ml-0 md:mb-1">Mattresses: {{$totalMattresses}}</p>
-            <p class="mb-0 ml-2 md:ml-0 md:mb-1">Sofas: {{$totalSofas}}</p>
-            <p class="mb-0 ml-2 md:ml-0 md:mb-1">Armchairs: {{$totalArmChairs}}</p>
         </div>
     </div>
 

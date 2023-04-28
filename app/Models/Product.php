@@ -10,6 +10,19 @@ class Product extends Model
 {
     use HasFactory;
 
+    /**
+     * Model Attributes
+     * "id",
+     * "name",
+     * "description",
+     * "image",
+     * "price",
+     * "product_categories_id",
+     * "created_at",
+     * "updated_at",
+     * "slug",
+     */ 
+
     protected $fillable = [
         'name',
         'description',
@@ -28,5 +41,10 @@ class Product extends Model
                 ->where('name', 'like', '%' . $search . '%')
                 ->orWhere('description', 'like', '%' . $search . '%');
         });
+    }
+    
+    function getPrice()
+    {
+        return $this->attributes['price'];
     }
 }

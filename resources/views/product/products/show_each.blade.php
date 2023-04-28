@@ -10,7 +10,7 @@
         <div class="product-details col-md-8">
             <div class="card-body">
                 <h5 class="card-title">
-                    {{$product['name']}} ({{$product['price']}} zł)
+                    {{$product->name}} ({{$product->price}} -- {{$product->getPrice()}}zł)
                 </h5>
                 <p class="card-text">{{$product['description']}}</p>
                 <button type="submit" class="btn cart w-auto">Add to cart</button>

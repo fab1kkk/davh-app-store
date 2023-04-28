@@ -19,7 +19,7 @@ class DashboardController extends Controller
             'users' => User::all(),
         ];
 
-        return view('admin.panel.index')->with($viewdata);
+        return view('admin.panel.layout')->with($viewdata);
     }
 
 
