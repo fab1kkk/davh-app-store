@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\admin\auth\AuthController;
 use App\Http\Controllers\admin\panel\DashboardController;
-use App\Http\Controllers\admin\panel\ProductController as PanelProductController;
+use App\Http\Controllers\admin\panel\ProductController as AdminProductController;
+use App\Http\Controllers\admin\panel\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
@@ -41,5 +42,6 @@ Route::get('/categories/{category:slug}/products', [ProductController::class, 's
 
 Route::prefix('admin')->middleware('admin.auth')->name('admin.dashboard.')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
-    Route::get('/dashboard/products', [PanelProductController::class, 'index'])->name('products');
+    Route::get('/dashboard/products', [AdminProductController::class, 'index'])->name('products');
+    Route::get('/dashboard/users', [UserController::class, 'index'])->name('users');
 });

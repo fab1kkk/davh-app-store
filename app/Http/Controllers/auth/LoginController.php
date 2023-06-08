@@ -28,7 +28,6 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            // dd($request);
             return Auth::user()->admin ?
                 redirect()->route('admin.dashboard.index') :
                 redirect()->route('home.index')->with('success_form', "Logged in.");

@@ -43,8 +43,8 @@ class Product extends Model
         });
     }
     
-    function getPrice()
+    function getPrice($currency = 'pln')
     {
-        return $this->attributes['price'];
+        return $this->attributes['price'] . ' ' .$currency;
     }
 }
