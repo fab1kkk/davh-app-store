@@ -17,7 +17,7 @@ class UserController extends Controller
         $filteredColumns = array_diff($columns, $columnsToExclude);
         $viewData = [
             'title' => 'Manage users',
-            'users' => $user->all(),
+            'users' => $user->get(),
             'columns' => $filteredColumns,
         ];
 

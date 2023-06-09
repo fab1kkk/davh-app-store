@@ -10,7 +10,6 @@
 </head>
 
 <body>
-
     <!-- sidebar -->
     <div id="menu" class="fixed h-full bg-gray-900 md:w-52 w-40 transition-all duration-300 ease-in-out">
         <ul class="py-52">

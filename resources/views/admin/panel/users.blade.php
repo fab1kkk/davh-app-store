@@ -1,10 +1,10 @@
 @extends('admin.panel.layout')
-
 <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_panel/users.css') }}">
 
 <body>
     @section('content')
     <main>
+        
         <div class="justify-center text-center align-items-center">
             <table class="w-full text-center">
                 <tr>
@@ -22,6 +22,7 @@
                 </tr>
                 @endforeach
             </table>
+
     </main>
     @endsection
 </body>

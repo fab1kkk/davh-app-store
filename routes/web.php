@@ -43,5 +43,6 @@ Route::get('/categories/{category:slug}/products', [ProductController::class, 's
 Route::prefix('admin')->middleware('admin.auth')->name('admin.dashboard.')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
     Route::get('/dashboard/products', [AdminProductController::class, 'index'])->name('products');
+    Route::post('/dashboard/products', [AdminProductController::class, 'store'])->name('products.store');
     Route::get('/dashboard/users', [UserController::class, 'index'])->name('users');
 });
