@@ -17,46 +17,54 @@
             Dodaj nowy produkt
         </a>
         <div id="popup" class="popup hidden">
-            <div class="popup-content md:h-4/6 md:w-1/3 min-w-max">
-                <form action="{{ route ('admin.dashboard.products.store')}}" method="post">
+            <div class="popup-content md:h-4/6 md:w-1/3 min-w-max ">
+                <form action="{{ isset($product) ? route('admin.dashboard.products.update', $product->id) : route('admin.dashboard.products.store') }}" method="post">
                     @csrf
-                    <div class="form-name">
-                        <label for="name">Name:</label>
-                        <input type="text" name="name" placeholder="enter name">
-                    </div>
-                    <div class="form-description">
-                        <label for="description">Description:</label>
-                        <input type="text" name="description" placeholder="enter description">
-                    </div>
-                    <div class="form-image">
-                        <label for="image">Image:</label>
-                        <input type="text" name="image" placeholder="enter image">
-                    </div>
-                    <div class="form-price">
-                        <label for="price">Price:</label>
-                        <input type="number" step="0.01" name="price" placeholder="enter price">
-                    </div>
-                    <div class="form-category">
-                        <label for="product_categories_id">Category: </label>
-                        <select name="product_categories_id">
-                            @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{ Str::title($category->name) }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-buttons">
-                        <button type="submit">Submit</button>
-                        <a href="{{route('admin.dashboard.products')}}">
-                            <button type="cance">Cancel</button>
-                        </a>
+                    @if(isset($product))
+                    @method('PUT')
+                    @endif
+                    <div class="flex flex-col h-full gap-1">
+                        <label class="text-base font-normal" for="name">Name:</label>
+                        <div class="flex">
+                            <input class="w-full bg-slate-200 text-start" type="text" name="name" required>
+                        </div>
+                        <label class="text-base font-normal" for="description">Description:</label>
+                        <div class="flex h-full">
+                            <textarea name="description" class="w-full bg-slate-200"></textarea>
+                        </div>
+                        <label class="text-base font-normal" for="image">Image:</label>
+                        <div class="flex">
+                            <input class="w-full bg-slate-200" type="text" name="image" required>
+                        </div>
+                        <label class="text-base font-normal " for="price">Price:</label>
+                        <div class="flex">
+                            <input class="w-full bg-slate-200" type="number" step="0.01" name="price" required>
+                        </div>
+                        <label class="text-base font-normal " for="product_categories_id">Category: </label>
+                        <div class="flex">
+                            <select class="w-full bg-slate-200" name="product_categories_id">
+                                @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ Str::title($category->name) }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="flex mt-4">
+                            <button class="mr-4" type="submit">Submit</button>
+                            <a href="{{route('admin.dashboard.products')}}">
+                                <button type="button">Cancel</button>
+                            </a>
+                        </div>
                     </div>
                 </form>
             </div>
         </div>
         <script>
-            function openForm() {
+            function openForm(productId) {
                 var popup = document.getElementById('popup');
+                var form = document.querySelector('form');
                 popup.style.display = 'flex';
+                
+                form.action = productId ? "{{ route('admin.dashboard.products.update', '') }}/" + productId : "{{ route('admin.dashboard.products.store') }}";
             }
         </script>
 
@@ -72,13 +80,13 @@
                 <div class="flex ml-2 bg-gray-100 rounded-t-lg p-2">
                     <ul class="flex flex-col">
                         <li class="mb-2">
-                            <a href="#">
-                                <span class="inline-block w-24 bg-blue-400  text-center pl-2 pr-2 rounded-md font-semibold pt-1 pb-1">edit</span>
+                            <a href="#" class="inline-block w-24 bg-blue-400  text-center pl-2 pr-2 rounded-md font-semibold pt-1 pb-1">
+                                edit
                             </a>
                         </li>
                         <li class="mb-2">
-                            <a href="#">
-                                <span class="inline-block w-24 bg-red-500 text-center pl-2 pr-2 rounded-md font-semibold pt-1 pb-1">delete</span>
+                            <a href="#" class="inline-block w-24 bg-red-500 text-center pl-2 pr-2 rounded-md font-semibold pt-1 pb-1">
+                                delete
                             </a>
                         </li>
                         </li>

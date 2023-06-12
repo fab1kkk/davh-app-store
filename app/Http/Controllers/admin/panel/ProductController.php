@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 
@@ -22,7 +23,7 @@ class ProductController extends Controller
         return view('admin.panel.products')->with($viewData);
     }
 
-    public function store(Request $request): RedirectResponse
+    public function storeOrUpdate(Request $request, $id = null): RedirectResponse
     {
 
         $validated = $request->validate([
@@ -33,7 +34,6 @@ class ProductController extends Controller
             'product_categories_id' => ['required', 'exists:product_categories,id'],
         ]);
 
-
         function generateUniqueSlug($from)
         {
             $slug = Str::slug($from);
@@ -43,9 +43,8 @@ class ProductController extends Controller
             }
             return $slug;
         }
-
-
-        $product = new Product();
+        dd(Route::currentRouteName());
+        $product = $id ? Product::findOrFail($id) : new Product();
         $product->name = $validated['name'];
         $product->description = $validated['description'];
         $product->image = $validated['image'];
