@@ -5,10 +5,10 @@
 @section('content')
 <main class="flex flex-col flex-wrap">
     {{$products->links()}}
-    @if(session('success'))
+    @if(session('formFinalizationMessage'))
     <div class="flex basis-1/4 mt-2">
-        <div class="font-semibold bg-green-300 text-black border-none rounded-md p-3 text-center">
-            {{ session('success')}}
+        <div class="font-semibold {{ session('formFinalizationMethod') === 'store' ? 'bg-green-300' : 'bg-red-400'}} text-black border-none rounded-md p-3 text-center">
+            {{ session('formFinalizationMessage')}}
         </div>
     </div>
     @endif
@@ -18,11 +18,8 @@
         </a>
         <div id="popup" class="popup hidden">
             <div class="popup-content md:h-4/6 md:w-1/3 min-w-max ">
-                <form action="{{ isset($product) ? route('admin.dashboard.products.update', $product->id) : route('admin.dashboard.products.store') }}" method="post">
+                <form action="{{ route('admin.dashboard.products.store') }}" method="post">
                     @csrf
-                    @if(isset($product))
-                    @method('PUT')
-                    @endif
                     <div class="flex flex-col h-full gap-1">
                         <label class="text-base font-normal" for="name">Name:</label>
                         <div class="flex">
@@ -61,10 +58,8 @@
         <script>
             function openForm(productId) {
                 var popup = document.getElementById('popup');
-                var form = document.querySelector('form');
                 popup.style.display = 'flex';
-                
-                form.action = productId ? "{{ route('admin.dashboard.products.update', '') }}/" + productId : "{{ route('admin.dashboard.products.store') }}";
+
             }
         </script>
 
@@ -85,9 +80,11 @@
                             </a>
                         </li>
                         <li class="mb-2">
-                            <a href="#" class="inline-block w-24 bg-red-500 text-center pl-2 pr-2 rounded-md font-semibold pt-1 pb-1">
-                                delete
-                            </a>
+                            <form action="{{ route('admin.dashboard.products.delete', $product->id)}}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button class="inline-block w-24 bg-red-500 text-center pl-2 pr-2 rounded-md font-semibold pt-1 pb-1">delete</button>
+                            </form>
                         </li>
                         </li>
                     </ul>

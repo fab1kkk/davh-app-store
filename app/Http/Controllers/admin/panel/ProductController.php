@@ -23,7 +23,7 @@ class ProductController extends Controller
         return view('admin.panel.products')->with($viewData);
     }
 
-    public function storeOrUpdate(Request $request, $id = null): RedirectResponse
+    public function store(Request $request): RedirectResponse
     {
 
         $validated = $request->validate([
@@ -43,8 +43,7 @@ class ProductController extends Controller
             }
             return $slug;
         }
-        dd(Route::currentRouteName());
-        $product = $id ? Product::findOrFail($id) : new Product();
+        $product = new Product();
         $product->name = $validated['name'];
         $product->description = $validated['description'];
         $product->image = $validated['image'];
@@ -53,6 +52,20 @@ class ProductController extends Controller
         $product->slug = generateUniqueSlug($validated['name']);
 
         $product->save();
-        return back()->with('success', 'Saved.');
+        return back()->with([
+            'formFinalizationMessage' => "Product {$product->name} saved.",
+            'formFinalizationMethod' => 'store',
+        ]);
+    }
+
+    public function delete($id): RedirectResponse
+    {
+        $product = Product::find($id);
+        $product->delete();
+
+        return back()->with([
+            'formFinalizationMessage' => "Product {$product->name} deleted.",
+            'formFinalizationMethod' => 'delete',
+        ]);
     }
 }

@@ -43,7 +43,7 @@ Route::get('/categories/{category:slug}/products', [ProductController::class, 's
 Route::prefix('admin')->middleware('admin.auth')->name('admin.dashboard.')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
     Route::get('/dashboard/products', [AdminProductController::class, 'index'])->name('products');
-    Route::post('/dashboard/products', [AdminProductController::class, 'storeOrUpdate'])->name('products.store');
-    Route::put('/dashboard/products/{id}', [AdminProductController::class, 'storeOrUpdate'])->name('products.update');
+    Route::post('/dashboard/products', [AdminProductController::class, 'store'])->name('products.store');
+    Route::delete('/dashboard/products/{id}', [AdminProductController::class, 'delete'])->name('products.delete');
     Route::get('/dashboard/users', [UserController::class, 'index'])->name('users');
 });
