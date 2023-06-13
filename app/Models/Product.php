@@ -30,7 +30,10 @@ class Product extends Model
         'product_categories_id',
         'slug',
     ];
-
+    public function category()
+    {
+        return $this->belongsTo(ProductCategory::class, 'product_categories_id');
+    }
     public function scopeFilter($query, array $filters)
     {
         if (empty($filters['q'])) {

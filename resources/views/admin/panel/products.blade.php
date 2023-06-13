@@ -47,9 +47,7 @@
                         </div>
                         <div class="flex mt-4">
                             <button class="mr-4" type="submit">Create</button>
-                            <a href="{{route('admin.dashboard.products')}}">
-                                <button type="button">Cancel</button>
-                            </a>
+                            <button type="button" onclick="closeForm()">Cancel</button>
                         </div>
                     </div>
                 </form>
@@ -97,15 +95,15 @@
                                             <div class="flex">
                                                 <select class="w-full bg-slate-200" name="product_categories_id">
                                                     @foreach($categories as $category)
-                                                    <option value="{{ $category->id }}">{{ Str::title($category->name) }}</option>
+                                                    <option value="{{ $category->id }}" {{ $category->id === $product->product_categories_id ? 'selected' : '' }}>
+                                                        {{ Str::title($category->name) }}
+                                                    </option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             <div class="flex mt-4">
                                                 <button class="mr-4" type="submit">Update</button>
-                                                <a href="{{route('admin.dashboard.products')}}">
-                                                    <button type="button">Cancel</button>
-                                                </a>
+                                                <button type="button" onclick="closeForm({{$product->id}})">Cancel</button>
                                             </div>
                                         </div>
                                     </form>
@@ -147,6 +145,14 @@
                 var form = popup.querySelector('form');
             }
             popup.style.display = 'flex';
+        }
+
+        function closeForm(productId) {
+            var popupStore = document.getElementById('create-popup');
+            popupStore.style.display = 'none';
+
+            var popupEdit = document.getElementById('edit-popup-' + productId);
+            popupEdit.style.display = 'none';
         }
     </script>
 </main>
