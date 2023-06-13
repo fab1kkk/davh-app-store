@@ -44,6 +44,7 @@ Route::prefix('admin')->middleware('admin.auth')->name('admin.dashboard.')->grou
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
     Route::get('/dashboard/products', [AdminProductController::class, 'index'])->name('products');
     Route::post('/dashboard/products', [AdminProductController::class, 'store'])->name('products.store');
-    Route::delete('/dashboard/products/{id}', [AdminProductController::class, 'delete'])->name('products.delete');
+    Route::put('/dashboard/products/edit/{id}', [AdminProductController::class, 'edit'])->name('products.edit');
+    Route::delete('/dashboard/products/delete/{id}', [AdminProductController::class, 'delete'])->name('products.delete');
     Route::get('/dashboard/users', [UserController::class, 'index'])->name('users');
 });

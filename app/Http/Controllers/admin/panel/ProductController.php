@@ -57,7 +57,23 @@ class ProductController extends Controller
             'formFinalizationMethod' => 'store',
         ]);
     }
+    public function edit($id): RedirectResponse
+    {
+        $product = Product::find($id);
+        $oldName = $product->name;
+        $product->name = request('name');
+        $product->description = request('description');
+        $product->image = request('image');
+        $product->price = request('price');
+        $product->product_categories_id = request('product_categories_id');
+        $product->save();
 
+        return back()->with([
+            'formFinalizationMessage' => "Product {$oldName} edited.",
+            'formFinalizationMethod' => 'edit',
+            'product' => $product,
+        ]);
+    }
     public function delete($id): RedirectResponse
     {
         $product = Product::find($id);

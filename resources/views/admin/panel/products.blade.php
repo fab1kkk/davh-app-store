@@ -13,10 +13,10 @@
     </div>
     @endif
     <div class="flex flex-col">
-        <a href="#" onclick="openForm()" class="inline-block bg-yellow-300 text-center rounded-md font-semibold pt-2 pb-2 mt-2">
+        <button onclick="openForm('store')" class="inline-block bg-yellow-300 text-center rounded-md font-semibold pt-2 pb-2 mt-2">
             Dodaj nowy produkt
-        </a>
-        <div id="popup" class="popup hidden">
+        </button>
+        <div id="create-popup" class="popup hidden">
             <div class="popup-content md:h-4/6 md:w-1/3 min-w-max ">
                 <form action="{{ route('admin.dashboard.products.store') }}" method="post">
                     @csrf
@@ -46,7 +46,7 @@
                             </select>
                         </div>
                         <div class="flex mt-4">
-                            <button class="mr-4" type="submit">Submit</button>
+                            <button class="mr-4" type="submit">Create</button>
                             <a href="{{route('admin.dashboard.products')}}">
                                 <button type="button">Cancel</button>
                             </a>
@@ -55,13 +55,6 @@
                 </form>
             </div>
         </div>
-        <script>
-            function openForm(productId) {
-                var popup = document.getElementById('popup');
-                popup.style.display = 'flex';
-
-            }
-        </script>
 
         <hr class="border-2 border-gray-200 rounded mt-4">
         <div class="main-wrapper" id="background">
@@ -75,9 +68,49 @@
                 <div class="flex ml-2 bg-gray-100 rounded-t-lg p-2">
                     <ul class="flex flex-col">
                         <li class="mb-2">
-                            <a href="#" class="inline-block w-24 bg-blue-400  text-center pl-2 pr-2 rounded-md font-semibold pt-1 pb-1">
+                            <button onclick="openForm('edit', {{$product->id}})" class="inline-block w-24 bg-blue-400 text-center pl-2 pr-2 rounded-md font-semibold pt-1 pb-1">
                                 edit
-                            </a>
+                            </button>
+                            <div id="edit-popup-{{$product->id}}" class="popup hidden">
+                                <div class="popup-content md:h-4/6 md:w-1/3 min-w-max ">
+                                    <form action="{{ route('admin.dashboard.products.edit', ['id' => $product->id]) }}" method="post">
+                                        @csrf
+                                        @method('put')
+                                        <div class="flex flex-col h-full gap-1">
+                                            <label class="text-base font-normal" for="name">Name:</label>
+                                            <div class="flex">
+                                                <input class="w-full bg-slate-200 text-start" type="text" name="name" value="{{$product->name}}" required>
+                                            </div>
+                                            <label class="text-base font-normal" for="description">Description:</label>
+                                            <div class="flex h-full">
+                                                <textarea name="description" required class="w-full bg-slate-200">{{ $product->description }}</textarea>
+                                            </div>
+                                            <label class="text-base font-normal" for="image">Image:</label>
+                                            <div class="flex">
+                                                <input class="w-full bg-slate-200" type="text" name="image" value="{{ $product->image }}" required>
+                                            </div>
+                                            <label class="text-base font-normal " for="price">Price:</label>
+                                            <div class="flex">
+                                                <input class="w-full bg-slate-200" type="number" step="0.01" name="price" value="{{ $product->price}}" required>
+                                            </div>
+                                            <label class="text-base font-normal" for="product_categories_id">Category: </label>
+                                            <div class="flex">
+                                                <select class="w-full bg-slate-200" name="product_categories_id">
+                                                    @foreach($categories as $category)
+                                                    <option value="{{ $category->id }}">{{ Str::title($category->name) }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="flex mt-4">
+                                                <button class="mr-4" type="submit">Update</button>
+                                                <a href="{{route('admin.dashboard.products')}}">
+                                                    <button type="button">Cancel</button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </li>
                         <li class="mb-2">
                             <form action="{{ route('admin.dashboard.products.delete', $product->id)}}" method="post">
@@ -101,5 +134,20 @@
             @endforeach
         </div>
     </div>
+    <script>
+        function openForm(mode, productId) {
+            var popup;
+
+            if (mode === 'store') {
+                popup = document.getElementById('create-popup');
+                var form = popup.querySelector('form');
+                form.action = "{{ route('admin.dashboard.products.store') }}";
+            } else if (mode === 'edit') {
+                popup = document.getElementById('edit-popup-' + productId);
+                var form = popup.querySelector('form');
+            }
+            popup.style.display = 'flex';
+        }
+    </script>
 </main>
 @endsection

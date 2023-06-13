@@ -27,7 +27,8 @@ class Product extends Model
         'description',
         'image',
         'price',
-        'slug'
+        'product_categories_id',
+        'slug',
     ];
 
     public function scopeFilter($query, array $filters)
