@@ -7,20 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+
     use HasFactory;
 
-    /**
-     * Model Attributes
-     * "id",
-     * "name",
-     * "description",
-     * "image",
-     * "price",
-     * "product_categories_id",
-     * "created_at",
-     * "updated_at",
-     * "slug",
-     */ 
+    public function category()
+    {
+        return $this->belongsTo(ProductCategory::class, 'product_categories_id');
+    }
 
     protected $fillable = [
         'name',
@@ -30,10 +23,6 @@ class Product extends Model
         'product_categories_id',
         'slug',
     ];
-    public function category()
-    {
-        return $this->belongsTo(ProductCategory::class, 'product_categories_id');
-    }
     public function scopeFilter($query, array $filters)
     {
         if (empty($filters['q'])) {

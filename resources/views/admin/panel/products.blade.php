@@ -66,7 +66,7 @@
                 <div class="flex ml-2 bg-gray-100 rounded-t-lg p-2">
                     <ul class="flex flex-col">
                         <li class="mb-2">
-                            <button onclick="openForm('edit', {{$product->id}})" class="inline-block w-24 bg-blue-400 text-center pl-2 pr-2 rounded-md font-semibold pt-1 pb-1">
+                            <button onclick="openForm('edit', {{ $product->id }})" class="inline-block w-24 bg-blue-400 text-center pl-2 pr-2 rounded-md font-semibold pt-1 pb-1">
                                 edit
                             </button>
                             <div id="edit-popup-{{$product->id}}" class="popup hidden">

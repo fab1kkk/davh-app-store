@@ -17,7 +17,7 @@ class ProductController extends Controller
     {
         $viewData = [
             'title' => 'Manage products',
-            'products' => $products->paginate(3),
+            'products' => $products->paginate(10),
             'categories' => $category->all(),
         ];
         return view('admin.panel.products')->with($viewData);
