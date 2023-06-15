@@ -67,7 +67,6 @@ class ProductController extends Controller
         $product->product_categories_id = request('product_categories_id');
         $originalName = $product->getOriginal('name');
         $product->save();
-
         return back()->with([
             'formFinalizationMessage' => "Product {$originalName} updated.",
             'formFinalizationMethod' => 'edit',
