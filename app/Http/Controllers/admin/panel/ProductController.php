@@ -69,7 +69,7 @@ class ProductController extends Controller
         $product->save();
 
         return back()->with([
-            'formFinalizationMessage' => "Product {$oldName} edited.",
+            'formFinalizationMessage' => "Product {$oldName} updated.",
             'formFinalizationMethod' => 'edit',
             'product' => $product,
         ]);
