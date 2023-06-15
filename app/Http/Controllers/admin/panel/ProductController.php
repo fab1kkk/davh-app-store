@@ -60,16 +60,16 @@ class ProductController extends Controller
     public function edit($id): RedirectResponse
     {
         $product = Product::find($id);
-        $oldName = $product->name;
         $product->name = request('name');
         $product->description = request('description');
         $product->image = request('image');
         $product->price = request('price');
         $product->product_categories_id = request('product_categories_id');
+        $originalName = $product->getOriginal('name');
         $product->save();
 
         return back()->with([
-            'formFinalizationMessage' => "Product {$oldName} updated.",
+            'formFinalizationMessage' => "Product {$originalName} updated.",
             'formFinalizationMethod' => 'edit',
             'product' => $product,
         ]);
