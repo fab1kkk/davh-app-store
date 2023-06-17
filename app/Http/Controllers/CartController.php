@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Classes\CustomHelpers;
+use App\Models\ShoppingCart;
 use App\Models\ShoppingCartItem;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class CartController extends Controller
@@ -12,11 +15,17 @@ class CartController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index()
     {
         $title = CustomHelpers::setPageTitle('Lista zakupów');
-        return view('shopping_cart/index', ['title' => $title]);
+        $cart = auth()->user()->shoppingCart;
+
+        return view('shopping_cart/index', [
+            'title' => $title,
+            'cart' => $cart,
+        ]);
     }
+
 
     /**
      * Show the form for creating a new resource.

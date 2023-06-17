@@ -12,19 +12,10 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /** 
-     * Model Attributes
-     * "id",
-     * "name",
-     * "email",
-     * "email_verified_at",
-     * "password",
-     * "remember_token",
-     * "created_at",
-     * "updated_at",
-     * "admin",  
-     */
-    
+    public function shoppingCart() {
+        return $this->hasOne(ShoppingCart::class, 'user_id');
+    }
+
     protected $fillable = [
         'name',
         'email',
