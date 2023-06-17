@@ -11,7 +11,7 @@ use App\Classes\CustomHelpers;
     <link rel="stylesheet" type="text/css" href="{{ asset('css/base.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <title>@yield('title', 'Online Store')</title>
+    <title>@yield('title', CustomHelpers::setPageTitle() )</title>
 </head>
 
 <body>
@@ -82,7 +82,7 @@ use App\Classes\CustomHelpers;
     <!-- FOOTER -->
     <footer class="bg-dark">
         <div class="text-center p-3 text-white" style="background-color: rgba(0, 0, 0, 0.2);">
-            <span class="foot-span">{{ CustomHelpers::getAppName() }} project using PHP v<strong>{{ PHP_VERSION }}</strong> and Laravel v<strong>{{ Illuminate\Foundation\Application::VERSION}}. </strong></span>
+            <span class="foot-span">{{ CustomHelpers::setPageTitle() }} project using PHP v<strong>{{ PHP_VERSION }}</strong> and Laravel v<strong>{{ Illuminate\Foundation\Application::VERSION}}. </strong></span>
             <a target="_blank" href="https://github.com/fab1kkk/davh-app-store">
                 <img class="foot-git" src="{{ asset('static/img/github.png') }}" alt="github icon" style="margin-left: 10px" ;>
             </a>

@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\panel\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\products\ProductCategoryController;
 use App\Http\Controllers\products\ProductController;
 use App\Http\Controllers\SearchController;
@@ -49,4 +50,6 @@ Route::prefix('admin')->middleware('admin.auth')->name('admin.dashboard.')->grou
     Route::get('/dashboard/users', [UserController::class, 'index'])->name('users');
 });
 
-// Route::controller()
+Route::controller(CartController::class)->group(function() {
+    Route::get('/cart', 'index');
+});

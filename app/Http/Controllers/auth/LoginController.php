@@ -14,7 +14,7 @@ class LoginController extends Controller
     public function index(): View
     {
         $viewData = [
-            'title' => 'Sign in ' . CustomHelpers::getAppName(),
+            'title' => CustomHelpers::setPageTitle('Zaloguj sie'),
         ];
         return view('auth.login')->with($viewData);
     }

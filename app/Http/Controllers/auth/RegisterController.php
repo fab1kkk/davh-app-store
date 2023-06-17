@@ -15,7 +15,7 @@ class RegisterController extends Controller
     public function index(): View
     {
         $viewData = [
-            'title' => "Join " . CustomHelpers::getAppName()
+            'title' => CustomHelpers::setPageTitle('Zarejestruj się')
         ];
         return view('auth.register')->with($viewData);
     }

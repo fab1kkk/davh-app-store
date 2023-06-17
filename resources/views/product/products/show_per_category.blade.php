@@ -1,4 +1,5 @@
 @extends('layout/base')
+@section('title', $title)
 @section('content')
 <link rel="stylesheet" href="{{asset('css/product/index.css')}}">
 

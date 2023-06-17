@@ -4,10 +4,27 @@ namespace App\Classes;
 
 class CustomHelpers
 {
-    private static $appName = 'DAVHON Meble';
+    /**
+     * The application name.
+     * 
+     *  @var string
+     */
+    private static $appName = 'DAVHON Meble - sklep meblowy - davhon.pl';
 
-    public static function getAppName()
+    /**
+     * Set the page title.
+     *
+     * If no page title is provided, the title will default to the application name.
+     * @param string|null $pageTitle The page title.
+     * @param string $sep The separator to use between the page title and the application name.
+     * @return string The formatted page title. If $pageTitle is set to null, title is set to $appName.
+     */
+    static function setPageTitle($pageTitle = null, $sep = ' - ')
     {
-        return self::$appName;
+        if ($pageTitle) {
+            return $pageTitle . $sep . self::$appName;
+        } else {
+            return self::$appName;
+        }
     }
 }

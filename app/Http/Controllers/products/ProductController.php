@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\products;
 
+use App\Classes\CustomHelpers;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductCategory;
@@ -12,7 +13,7 @@ class ProductController extends Controller
     public function index(Product $product): View
     {
         $viewData = [
-            'title' => 'Browse our products',
+            'title' => CustomHelpers::setPageTitle('Oferta'),
             'products' => $product->all()
         ];
 
@@ -24,6 +25,7 @@ class ProductController extends Controller
     {
         $products = Product::where('product_categories_id', $category->id)->get();
         $viewData = [
+            'title' => CustomHelpers::setPageTitle($category->name),
             'products' => $products,
         ];
 
@@ -33,7 +35,7 @@ class ProductController extends Controller
     public function showEach(Product $product): View
     {
         $viewData = [
-            'title' => $product->name,
+            'title' => CustomHelpers::setPageTitle($product->name),
             'product' => $product
         ];
 

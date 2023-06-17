@@ -9,7 +9,7 @@ class HomeController extends Controller
     public function index()
     {
         $viewData = [
-            'title' => CustomHelpers::getAppName(),
+            'title' => CustomHelpers::setPageTitle('Witaj'),
         ];
         return view('home')->with($viewData);
     }

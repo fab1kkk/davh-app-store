@@ -11,7 +11,7 @@ class SearchController extends Controller
     {
         $products = Product::filter(request(['q']))->get();
         return view('search_results', [
-            'title'=> "Wyniki wyszukiwania - " . CustomHelpers::getAppName(),
+            'title'=> CustomHelpers::setPageTitle('Wyniki wyszukiwania'),
             'products' => $products,
             'resultsMessage' => $products->count() . " products found.",
         ]);
