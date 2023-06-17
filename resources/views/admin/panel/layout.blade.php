@@ -47,7 +47,6 @@
         </div>
     </div>
 
-
     <!-- Content goes here -->
     <div class="ml-40 md:ml-52 p-4">
         @yield('content')

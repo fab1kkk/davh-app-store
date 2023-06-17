@@ -25,6 +25,7 @@ class LoginController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
+        dd(Auth::login());
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return Auth::user()->admin ?
