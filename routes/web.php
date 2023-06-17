@@ -48,3 +48,5 @@ Route::prefix('admin')->middleware('admin.auth')->name('admin.dashboard.')->grou
     Route::delete('/dashboard/products/delete/{id}', [AdminProductController::class, 'delete'])->name('products.delete');
     Route::get('/dashboard/users', [UserController::class, 'index'])->name('users');
 });
+
+// Route::controller()

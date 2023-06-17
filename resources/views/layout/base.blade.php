@@ -43,15 +43,13 @@ use App\Classes\CustomHelpers;
         @if (auth()->check())
         <div class="container">
             <div class="nav-auth">
-                @if(auth()->user()->isAdmin())
-                <a href="{{ route('admin.dashboard.index') }}" class="header-profile-dropdown-toggle">
-                    <img class="header-profile" src="{{ asset('static/img/profile.png') }}" alt="profile icon">
+                <a href="#" class="header-profile-dropdown-toggle">
+                    <img class="header-profile" src="{{ asset('static/img/navbar/cart.png') }}" alt="profile icon">
                 </a>
-                @else
-                <a href="#profile" class="header-profile-dropdown-toggle">
-                    <img class="header-profile" src="{{ asset('static/img/profile.png') }}" alt="profile icon">
+            <div class="nav-auth">
+                <a href="{{ auth()->user()->admin ? route('admin.dashboard.index') : '#' }}" class="header-profile-dropdown-toggle">
+                    <img class="header-profile" src="{{ asset('static/img/navbar/profile.png') }}" alt="profile icon">
                 </a>
-                @endif
                 <form class="form-inline my-2 my-lg-0" method="POST" action="{{ route('login.logout') }}">
                     @csrf
                     <button class="nav-btn" type="submit">Logout</button>
