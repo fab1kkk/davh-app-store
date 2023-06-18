@@ -6,7 +6,7 @@
     border-radius: 10px;
     padding: 35px;
     background-color: rgba(0, 0, 0, 0.35);
-    margin: 3% auto;
+    margin: 35px auto;
     width: 300px;
 }
 
@@ -22,21 +22,20 @@
 
 label {
     font-weight: bold;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .form-group input {
-    padding: 5px;
+    padding: 10px;
     border: 1px solid #000000;
-    border-radius: 5px;
-    height: 30px;
-    width: 225px;
-    margin-bottom: 10px;
+    border-radius: 10px;
+    height: 35px;
+    width: 100%;
+    margin-bottom: 15px;
 }
 
 .form-group .btn
 {
-    width: inherit;
     font-size: 14px;
 }
 
@@ -44,12 +43,10 @@ label {
     display: block;
     text-align: center;
     margin-top: 6px;
-    font-size: 14px;
-    color: #666;
-    text-decoration: none;
-  }
-  
-  .reg-span {
+}
+
+.reg-span {
     font-weight: bold;
-    color: #333;
+    color: black;
+    font-size: 14px;
   }

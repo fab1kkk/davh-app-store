@@ -40,17 +40,17 @@ use App\Classes\CustomHelpers;
 
         </div>
 
-        @if (auth()->check())
         <div class="container">
             <div class="nav-auth">
                 <div class="cart">
                     <span class="dot">
-                        <span class="dot-number">{{ Auth::user()->shoppingCart->cartItems->count() }}</span>
+                        <span class="dot-number">{{ Auth::check() ? count(Auth::user()->shoppingCart->cartItems) : count(unserialize(Cookie::get('product_ids'))) }}</span>
                     </span>
                     <a href="{{ route('cart.index') }}" class="header-profile-dropdown-toggle">
                         <img class="header-profile" src="{{ asset('static/img/navbar/cart.png') }}" alt="profile icon">
                     </a>
                 </div>
+                @if (Auth::check())
                 <div class="nav-auth">
                     <a href="{{ auth()->user()->admin ? route('admin.dashboard.index') : '#' }}" class="header-profile-dropdown-toggle">
                         <img class="header-profile" src="{{ asset('static/img/navbar/profile.png') }}" alt="profile icon">

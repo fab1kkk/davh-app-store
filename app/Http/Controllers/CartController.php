@@ -49,7 +49,7 @@ class CartController extends Controller
                 : [];
             $cookieData[] = $cartItem->product_id;
             $cookie = Cookie::make('product_ids', serialize($cookieData), 56700);
-            // dd(Cookie::get('product_ids'));
+            dd(count(unserialize(Cookie::get('product_ids'))));
             // $cookie = Cookie::forget('product_ids');
             return redirect()->back()->withCookie($cookie);
         }
