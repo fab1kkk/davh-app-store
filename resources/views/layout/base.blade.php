@@ -43,26 +43,31 @@ use App\Classes\CustomHelpers;
         @if (auth()->check())
         <div class="container">
             <div class="nav-auth">
-                <a href="{{ route('cart.index') }}" class="header-profile-dropdown-toggle">
-                    <img class="header-profile" src="{{ asset('static/img/navbar/cart.png') }}" alt="profile icon">
-                </a>
-            <div class="nav-auth">
-                <a href="{{ auth()->user()->admin ? route('admin.dashboard.index') : '#' }}" class="header-profile-dropdown-toggle">
-                    <img class="header-profile" src="{{ asset('static/img/navbar/profile.png') }}" alt="profile icon">
-                </a>
-                <form class="form-inline my-2 my-lg-0" method="POST" action="{{ route('login.logout') }}">
-                    @csrf
-                    <button class="nav-btn" type="submit">Logout</button>
+                <div class="cart">
+                    <span class="dot">
+                        <span class="dot-number">{{ Auth::user()->shoppingCart->cartItems->count() }}</span>
+                    </span>
+                    <a href="{{ route('cart.index') }}" class="header-profile-dropdown-toggle">
+                        <img class="header-profile" src="{{ asset('static/img/navbar/cart.png') }}" alt="profile icon">
+                    </a>
+                </div>
+                <div class="nav-auth">
+                    <a href="{{ auth()->user()->admin ? route('admin.dashboard.index') : '#' }}" class="header-profile-dropdown-toggle">
+                        <img class="header-profile" src="{{ asset('static/img/navbar/profile.png') }}" alt="profile icon">
+                    </a>
+                    <form class="form-inline my-2 my-lg-0" method="POST" action="{{ route('login.logout') }}">
+                        @csrf
+                        <button class="nav-btn" type="submit">Logout</button>
+                </div>
+                </form>
             </div>
-            </form>
-        </div>
-        @else
-        <div class="container">
-            <a href="{{ route('login.index')}}">
-                <button class="nav-btn" id="login-btn">Sign In</button>
-            </a>
-        </div>
-        @endif
+            @else
+            <div class="container">
+                <a href="{{ route('login.index')}}">
+                    <button class="nav-btn" id="login-btn">Sign In</button>
+                </a>
+            </div>
+            @endif
     </nav>
     <div class="wrapper">
         <div class="container">

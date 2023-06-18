@@ -52,4 +52,5 @@ Route::prefix('admin')->middleware('admin.auth')->name('admin.dashboard.')->grou
 
 Route::controller(CartController::class)->group(function() {
     Route::get('/cart', 'index')->middleware('auth')->name('cart.index');
+    Route::post('/cart/product/{id}/add', 'store')->name('cart.add');
 });

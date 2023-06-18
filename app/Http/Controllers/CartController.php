@@ -9,31 +9,26 @@ use App\Models\User;
 use Illuminate\Http\Client\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\View\View;
 
 class CartController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    private function storageInfo()
+    {
+        return Auth::check() ? 'database' : 'session';
+    }
+
     public function index()
     {
+        $user = auth()->user();
         $title = CustomHelpers::setPageTitle('Lista zakupów');
-        $items = auth()->user()->shoppingCart->cartItems;
-        // dd(session()->all());
+        $items = $user->shoppingCart->cartItems;
+        // dd($this->storageInfo());
         return view('shopping_cart/index', [
             'title' => $title,
             'items' => $items,
         ]);
-    }
-
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -41,29 +36,30 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = Auth::user();
+        if ($user) {
+
+            $cartItem = new ShoppingCartItem();
+            $cartItem->product_id = request('id');
+            $cartItem->cart_id = $user->shoppingCart->id;
+            $cartItem->save();
+
+            $cookieData = $request->hasCookie('product_ids')
+                ? unserialize(Cookie::get('product_ids'))
+                : [];
+            $cookieData[] = $cartItem->product_id;
+            $cookie = Cookie::make('product_ids', serialize($cookieData), 56700);
+            // dd(Cookie::get('product_ids'));
+            // $cookie = Cookie::forget('product_ids');
+            return redirect()->back()->withCookie($cookie);
+        }
+        return redirect('/');
     }
 
     /**
      * Display the specified resource.
      */
     public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
     {
         //
     }

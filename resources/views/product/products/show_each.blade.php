@@ -6,13 +6,13 @@
         display: flex;
         align-items: center;
     }
+
     .col-md-4 img {
         display: flex;
         max-width: 100%;
         max-height: 100%;
         border-radius: 20px;
     }
-
 </style>
 <link rel="stylesheet" href="{{asset('css/product/show.css')}}">
 <div class="card mb-3">
@@ -27,7 +27,12 @@
                 </h5>
                 <p class="card-text">{{$product['description']}}
                 </p>
-                <button type="submit" class="btn cart w-auto">Add to cart</button>
+                <form action="{{ route('cart.add', $product->id ) }}" method="post">
+                    @csrf
+                    <input type="hidden" name="id" value="{{$product->id}}">
+                    <input type="hidden" name="price" value="{{$product->price}}">
+                    <button type="submit" class="btn cart w-auto">Add to cart</button>
+                </form>
             </div>
         </div>
     </div>
