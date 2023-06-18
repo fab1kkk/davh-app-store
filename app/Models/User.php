@@ -13,8 +13,9 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     public function shoppingCart() {
-        return $this->hasOne(ShoppingCart::class, 'user_id');
+        return $this->hasOne(ShoppingCart::class);
     }
+
 
     protected $fillable = [
         'name',

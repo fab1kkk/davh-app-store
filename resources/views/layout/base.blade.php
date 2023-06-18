@@ -43,7 +43,7 @@ use App\Classes\CustomHelpers;
         @if (auth()->check())
         <div class="container">
             <div class="nav-auth">
-                <a href="#" class="header-profile-dropdown-toggle">
+                <a href="{{ route('cart.index') }}" class="header-profile-dropdown-toggle">
                     <img class="header-profile" src="{{ asset('static/img/navbar/cart.png') }}" alt="profile icon">
                 </a>
             <div class="nav-auth">

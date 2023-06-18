@@ -51,5 +51,5 @@ Route::prefix('admin')->middleware('admin.auth')->name('admin.dashboard.')->grou
 });
 
 Route::controller(CartController::class)->group(function() {
-    Route::get('/cart', 'index')->middleware('auth');
+    Route::get('/cart', 'index')->middleware('auth')->name('cart.index');
 });

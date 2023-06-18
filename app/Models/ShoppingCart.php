@@ -10,6 +10,10 @@ class ShoppingCart extends Model
     use HasFactory;
 
     public function user() {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class);
+    }
+
+    public function cartItems () {
+        return $this->hasMany(ShoppingCartItem::class, 'cart_id');
     }
 }

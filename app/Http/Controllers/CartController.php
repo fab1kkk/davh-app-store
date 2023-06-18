@@ -6,6 +6,7 @@ use App\Classes\CustomHelpers;
 use App\Models\ShoppingCart;
 use App\Models\ShoppingCartItem;
 use App\Models\User;
+use Illuminate\Http\Client\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
@@ -18,11 +19,11 @@ class CartController extends Controller
     public function index()
     {
         $title = CustomHelpers::setPageTitle('Lista zakupów');
-        $cart = auth()->user()->shoppingCart;
-
+        $items = auth()->user()->shoppingCart->cartItems;
+        // dd(session()->all());
         return view('shopping_cart/index', [
             'title' => $title,
-            'cart' => $cart,
+            'items' => $items,
         ]);
     }
 
