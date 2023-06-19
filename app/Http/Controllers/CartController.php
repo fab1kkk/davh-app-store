@@ -3,72 +3,54 @@
 namespace App\Http\Controllers;
 
 use App\Classes\CustomHelpers;
-use App\Models\ShoppingCart;
+use App\Models\Product;
 use App\Models\ShoppingCartItem;
-use App\Models\User;
-use Illuminate\Http\Client\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
-use Illuminate\View\View;
 
 class CartController extends Controller
 {
-    private function storageInfo()
+    public function show()
     {
-        return Auth::check() ? 'database' : 'session';
-    }
-
-    public function index()
-    {
-        $user = auth()->user();
         $title = CustomHelpers::setPageTitle('Lista zakupów');
-        $items = $user->shoppingCart->cartItems;
-        // dd($this->storageInfo());
+
+        if (Auth::check()) {
+            $user = Auth::user();
+            $cartItems = $user->shoppingCart->cartItems;
+        } else {
+            $cookieData = Cookie::get('product_ids');
+            $cartItems = $cookieData
+                ? unserialize($cookieData)
+                : [];
+        }
+
         return view('shopping_cart/index', [
             'title' => $title,
-            'items' => $items,
+            'items' => $cartItems,
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function addToCart(Request $request)
     {
-        $user = Auth::user();
-        if ($user) {
+        $productId = $request->input('id');
+        if (Auth::check()) {
+            $user = Auth::user();
 
             $cartItem = new ShoppingCartItem();
-            $cartItem->product_id = request('id');
+            $cartItem->product_id = $productId;
             $cartItem->cart_id = $user->shoppingCart->id;
             $cartItem->save();
-
+            return back();
+        } else {
             $cookieData = $request->hasCookie('product_ids')
                 ? unserialize(Cookie::get('product_ids'))
                 : [];
-            $cookieData[] = $cartItem->product_id;
-            $cookie = Cookie::make('product_ids', serialize($cookieData), 56700);
-            dd(count(unserialize(Cookie::get('product_ids'))));
-            // $cookie = Cookie::forget('product_ids');
+            $cookieData[] = $productId;
+
+            $cookie = Cookie::make('product_ids', serialize($cookieData), 60 * 60 * 24 * 365);
+
             return redirect()->back()->withCookie($cookie);
         }
-        return redirect('/');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

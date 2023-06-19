@@ -44,9 +44,19 @@ use App\Classes\CustomHelpers;
             <div class="nav-auth">
                 <div class="cart">
                     <span class="dot">
-                        <span class="dot-number">{{ Auth::check() ? count(Auth::user()->shoppingCart->cartItems) : count(unserialize(Cookie::get('product_ids'))) }}</span>
+                        <span class="dot-number">
+                            @if(Auth::check())
+                            {{ count(Auth::user()->shoppingCart->cartItems) }}
+                            @else
+                                @php
+                                    $cookieData = Cookie::get('product_ids');
+                                    $cartItemsAmount = $cookieData ? count(unserialize($cookieData)) : 0;
+                                @endphp
+                                {{ $cartItemsAmount }}
+                            @endif
+                        </span>
                     </span>
-                    <a href="{{ route('cart.index') }}" class="header-profile-dropdown-toggle">
+                    <a href="{{ route('cart.show') }}" class="header-profile-dropdown-toggle">
                         <img class="header-profile" src="{{ asset('static/img/navbar/cart.png') }}" alt="profile icon">
                     </a>
                 </div>

@@ -51,6 +51,6 @@ Route::prefix('admin')->middleware('admin.auth')->name('admin.dashboard.')->grou
 });
 
 Route::controller(CartController::class)->group(function() {
-    Route::get('/cart', 'index')->name('cart.index');
-    Route::post('/cart/product/{id}/add', 'store')->name('cart.add');
+    Route::get('/cart', 'show')->name('cart.show');
+    Route::post('/cart/product/{id}/add', 'addToCart')->name('cart.add');
 });
