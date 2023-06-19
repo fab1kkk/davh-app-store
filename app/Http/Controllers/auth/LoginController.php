@@ -4,7 +4,6 @@ namespace App\Http\Controllers\auth;
 
 use App\Http\Controllers\Controller;
 use App\Classes\CustomHelpers;
-use App\Models\Product;
 use App\Models\ShoppingCartItem;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -46,7 +45,7 @@ class LoginController extends Controller
                     $cartItem->save();
                 }
             }
-            
+
             $cookie = Cookie::forget('product_ids');
             $response = $user->admin
                 ? $this->processAdmin()

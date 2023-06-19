@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Classes\CustomHelpers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cookie;
 
 class HomeController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         $viewData = [
             'title' => CustomHelpers::setPageTitle('Witaj'),

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Classes\CustomHelpers;
-use App\Models\Product;
 use App\Models\ShoppingCartItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\admin\auth\AuthController;
 use App\Http\Controllers\admin\panel\DashboardController;
 use App\Http\Controllers\admin\panel\ProductController as AdminProductController;
 use App\Http\Controllers\admin\panel\UserController;
