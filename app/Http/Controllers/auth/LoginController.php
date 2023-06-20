@@ -4,6 +4,7 @@ namespace App\Http\Controllers\auth;
 
 use App\Http\Controllers\Controller;
 use App\Classes\CustomHelpers;
+use App\Helpers\Cookies\CookieProcessor;
 use App\Models\ShoppingCartItem;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -32,34 +33,19 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             $user = Auth::user();
-            $cartId = $user->shoppingCart->id;
 
-            if ($request->hasCookie('product_ids')) {
-                $cookieData = unserialize($request->cookie('product_ids'));
-                ShoppingCartItem::where('cart_id', $cartId)->delete();
-
-                foreach ($cookieData as $data) {
-                    $cartItem = new ShoppingCartItem();
-                    $cartItem->product_id = $data;
-                    $cartItem->cart_id = $cartId;
-                    $cartItem->save();
-                }
-            }
-
-            $cookie = Cookie::forget('product_ids');
             $response = $user->admin
-                ? $this->processAdmin()
-                : $this->processUser();
-
-            $response->withCookie($cookie);
-
-            return $response;
+                ? redirect()->route('admin.dashboard.index')
+                : redirect()->route('home.index')->with('success_form', "Logged in.");
+                
+            return $response->withCookie(CookieProcessor::processProductCookieOnLogin());
         }
-
         return back()
-            ->withErrors([
-                'email' => 'The provided credentials do not match our records.',
-            ]);
+            ->withErrors(
+                [
+                    'email' => 'Invalid credentials.',
+                ]
+            );
     }
 
     public function logout(Request $request): RedirectResponse
