@@ -41,15 +41,14 @@ class CartController extends Controller
             $cartItem->cart_id = $user->shoppingCart->id;
             $cartItem->save();
             return back();
-        } else {
-            $cookieData = $request->hasCookie('product_ids')
-                ? unserialize(Cookie::get('product_ids'))
-                : [];
-            $cookieData[] = $productId;
-
-            $cookie = Cookie::make('product_ids', serialize($cookieData), 60 * 60 * 24 * 365);
-
-            return redirect()->back()->withCookie($cookie);
         }
+        $cookieData = $request->hasCookie('product_ids')
+            ? unserialize(Cookie::get('product_ids'))
+            : [];
+        $cookieData[] = $productId;
+
+        $cookie = Cookie::make('product_ids', serialize($cookieData), 60 * 60 * 24 * 365);
+
+        return redirect()->back()->withCookie($cookie);
     }
 }

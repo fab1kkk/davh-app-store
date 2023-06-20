@@ -9,7 +9,7 @@ class CustomHelpers
      * 
      *  @var string
      */
-    private static $appName = 'DAVHON Meble - sklep meblowy - davhon.pl';
+    public static $appName = 'DAVHON Meble - sklep meblowy - davhon.pl';
 
     /**
      * Set the page title.
@@ -21,10 +21,9 @@ class CustomHelpers
      */
     static function setPageTitle($pageTitle = null, $sep = ' - ')
     {
-        if ($pageTitle) {
+        if ($pageTitle)
             return $pageTitle . $sep . self::$appName;
-        } else {
-            return self::$appName;
-        }
+
+        return self::$appName;
     }
 }
