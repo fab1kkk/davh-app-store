@@ -28,13 +28,12 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
-
         $user = new User();
         $user->name = $validated['name'];
         $user->email = $validated['email'];
         $user->password = Hash::make($validated['password']);
         $user->save();
-        
+
         return redirect()->route('login.index')->with('success_form', "Account has been created.");
     }
 }

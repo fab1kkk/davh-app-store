@@ -12,10 +12,19 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    public function shoppingCart() {
+    public function shoppingCart()
+    {
         return $this->hasOne(ShoppingCart::class);
     }
 
+    protected static function booted()
+    {
+        static::created(function ($user) {
+            $shoppingCart = new ShoppingCart();
+            $shoppingCart->user_id = $user->id;
+            $shoppingCart->save();
+        });
+    }
 
     protected $fillable = [
         'name',

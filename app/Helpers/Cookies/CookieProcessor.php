@@ -40,7 +40,6 @@ class CookieProcessor
         $cookieData[] = $id;
         $cookieData = serialize($cookieData);
 
-        $cookie = Cookie::make(self::SHOPPING_CART_COOKIE, $cookieData, 60 * 60 * 24 * 365);
-        return $cookie;
+        return Cookie::make(self::SHOPPING_CART_COOKIE, $cookieData, 60 * 60 * 24 * 365);
     }
 }
