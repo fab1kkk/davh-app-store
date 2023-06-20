@@ -30,14 +30,16 @@ class LoginController extends Controller
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt($credentials)) {
+        $loggedIn = Auth::attempt($credentials) ?? false;
+
+        if ($loggedIn) {
             $request->session()->regenerate();
             $user = Auth::user();
 
             $response = $user->admin
                 ? redirect()->route('admin.dashboard.index')
                 : redirect()->route('home.index')->with('success_form', "Logged in.");
-                
+
             return $response->withCookie(CookieProcessor::processProductCookieOnLogin());
         }
         return back()
