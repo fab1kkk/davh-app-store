@@ -4,13 +4,11 @@ namespace App\Http\Controllers\auth;
 
 use App\Http\Controllers\Controller;
 use App\Classes\CustomHelpers;
-use App\Helpers\Cookies\CookieProcessor;
-use App\Models\ShoppingCartItem;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cookie;
+use App\Helpers\Cookies\ProductCookie;
 
 class LoginController extends Controller
 {
@@ -40,7 +38,7 @@ class LoginController extends Controller
                 ? redirect()->route('admin.dashboard.index')
                 : redirect()->route('home.index')->with('success_form', "Logged in.");
 
-            return $response->withCookie(CookieProcessor::processProductCookieOnLogin());
+            return $response->withCookie(ProductCookie::apply());
         }
         return back()
             ->withErrors(

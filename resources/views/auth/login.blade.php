@@ -8,7 +8,7 @@
 </div>
 @endif
 <div class="login">
-    <form class="login-form" action="{{ route('login.login')}}" method="post">
+    <form class="login-form" id="login-form" action="{{ route('login.login')}}" method="post">
         @csrf
         <div class="form-group">
             <label for="email">Email</label>
@@ -19,9 +19,10 @@
             <input id="password" type="password" name="password" required>
         </div>
         <div class="form-group">
-            <button class="btn" type="submit">Log In</button>
+            <button class="btn" onclick="submitAnimation(this)" type="submit">Log In</button>
         </div>
         <a href="{{ route('register.index') }}" class="reg-link"><span class="reg-span">Don't have an account yet?</span></a>
     </form>
 </div>
+
 @endsection

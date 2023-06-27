@@ -118,3 +118,27 @@ footer {
     font-size: 12px;
     font-weight: semi-bold;
 }
+
+.loader {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.loader::after {
+    content : "";
+    width: 20px;
+    height: 20px;
+    border-top: 5px solid gray;
+    border-left: 5px solid gold;
+    border-right: 5px solid orangered;
+    border-bottom: 5px solid green;
+    animation: spin 0.8s ease infinite;
+    border-radius: 40%;
+}
+
+@keyframes spin {
+    from { transform: rotate(0turn);}
+    to {transform: rotate(1turn);}
+}

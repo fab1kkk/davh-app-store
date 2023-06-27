@@ -24,7 +24,7 @@
             <input id="password_confirmation" type="password" name="password_confirmation" required>
         </div>
         <div class="form-group">
-            <button class="btn" style="font-size:13px" type="submit">Register</button>
+            <button class="btn" onclick="submitAnimation(this)"style="font-size:13px" type="submit">Register</button>
         </div>
     </form>
 </div>

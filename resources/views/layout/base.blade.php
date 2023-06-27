@@ -48,11 +48,11 @@ use App\Classes\CustomHelpers;
                             @if(Auth::check())
                             {{ count(Auth::user()->shoppingCart->cartItems) }}
                             @else
-                                @php
-                                    $cookieData = Cookie::get('product_ids');
-                                    $cartItemsAmount = $cookieData ? count(unserialize($cookieData)) : 0;
-                                @endphp
-                                {{ $cartItemsAmount }}
+                            @php
+                            $cookieData = Cookie::get('product_ids');
+                            $cartItemsAmount = $cookieData ? count(unserialize($cookieData)) : 0;
+                            @endphp
+                            {{ $cartItemsAmount }}
                             @endif
                         </span>
                     </span>
@@ -127,6 +127,23 @@ use App\Classes\CustomHelpers;
                 event.preventDefault();
             }
         });
+    </script>
+    <script>
+        function submitAnimation(btn) {
+            var form = btn.closest('form');
+            var requiredFields = form.querySelectorAll('[required]');
+
+            var allFieldsFilled = Array.from(requiredFields).every(function(field) {
+                return field.value.trim() !== '';
+            });
+
+            if (allFieldsFilled && !btn.querySelector(".loader")) {
+                btn.innerHTML = null;
+                var loader = document.createElement("div");
+                loader.classList.add("loader");
+                btn.appendChild(loader);
+            }
+        };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"> </script>
 
