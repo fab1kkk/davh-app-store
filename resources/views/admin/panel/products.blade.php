@@ -5,15 +5,16 @@
 @section('content')
 <main class="flex flex-col flex-wrap">
     {{$products->links()}}
-    @if(session('formFinalizationMessage'))
+    @if(session('formFinalizationMessage') or (session('formFinalizationErrorMessage')))
     <div class="flex basis-1/4 mt-2">
-        <div class="font-semibold {{ session('formFinalizationMethod') === 'store' ? 'bg-green-300' : 'bg-red-400'}} text-black border-none rounded-md p-3 text-center">
+        <div class="font-semibold {{ session('formFinalizationMethod') === 'store' ? 'bg-green-400' : (session('formFinalizationMethod') === 'delete' ? 'bg-red-500' : 'bg-yellow-400') }} text-black border-none rounded-md p-3 text-center">
             {{ session('formFinalizationMessage')}}
+            {{ session('formFinalizationErrorMessage')}}
         </div>
     </div>
     @endif
     <div class="flex flex-col">
-        <button onclick="openForm('store')" class="inline-block bg-yellow-300 text-center rounded-md font-semibold pt-2 pb-2 mt-2">
+        <button onclick="openForm('store')" class="inline-block bg-gray-800 text-white text-center rounded-md font-semibold pt-2 pb-2 mt-2">
             Dodaj nowy produkt
         </button>
         <div id="create-popup" class="popup hidden">
@@ -66,7 +67,7 @@
                 <div class="flex ml-2 bg-gray-100 rounded-t-lg p-2">
                     <ul class="flex flex-col">
                         <li class="mb-2">
-                            <button onclick="openForm('edit', {{ $product->id }})" class="inline-block w-24 bg-blue-400 text-center pl-2 pr-2 rounded-md font-semibold pt-1 pb-1">
+                            <button onclick="openForm('edit', {{ $product->id }})" class="inline-block w-24 bg-gray-800 text-white text-center pl-2 pr-2 rounded-md font-medium pt-1 pb-1">
                                 edit
                             </button>
                             <div id="edit-popup-{{$product->id}}" class="popup hidden">
@@ -114,7 +115,7 @@
                             <form action="{{ route('admin.dashboard.products.delete', $product->id)}}" method="post">
                                 @csrf
                                 @method('delete')
-                                <button class="inline-block w-24 bg-red-500 text-center pl-2 pr-2 rounded-md font-semibold pt-1 pb-1">delete</button>
+                                <button class="inline-block w-24 bg-gray-800 text-white text-center pl-2 pr-2 rounded-md font-medium pt-1 pb-1">delete</button>
                             </form>
                         </li>
                         </li>
