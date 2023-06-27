@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\admin\panel;
 
+use App\Helpers\ShoppingCartItem\CartItem;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ShoppingCartItem;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 
@@ -76,18 +76,17 @@ class ProductController extends Controller
     }
     public function delete($id): RedirectResponse
     {
-        $product = Product::find($id);
-        $cartItem = ShoppingCartItem::where('product_id', $id)->first();
-        if ($cartItem) {
+        $productToDelete = Product::find($id);
+        if (CartItem::hasCart($productToDelete)) {
             return back()
                 ->with([
-                    'formFinalizationErrorMessage' => "Produkt " . $cartItem->product->name . " znajduje się aktualnie w czyimś koszyku. Nie można go usunąć."
+                    'formFinalizationErrorMessage' => "Produkt " . $productToDelete->name . " znajduje się aktualnie w czyimś koszyku. Nie można go usunąć."
                 ]);
         }
-        $product->delete();
+        $productToDelete->delete();
 
         return back()->with([
-            'formFinalizationMessage' => "Product {$product->name} deleted.",
+            'formFinalizationMessage' => "Product {$productToDelete->name} deleted.",
             'formFinalizationMethod' => 'delete',
         ]);
     }
