@@ -41,7 +41,7 @@ class ProductFactory extends Factory
             'name' => $name,
             'description' => fake()->paragraph(),
             'image' => $img,
-            'price' => fake()->randomFloat(null, 250, 3000),
+            'price' => fake()->randomFloat(2, 250, 3000),
             'product_categories_id' => $categoryId + 1,
             'slug' => Str::slug($name),
         ];

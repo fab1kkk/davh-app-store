@@ -77,6 +77,7 @@ class ProductController extends Controller
     public function delete($id): RedirectResponse
     {
         $productToDelete = Product::find($id);
+        // dd(CartItem::hasCart($productToDelete));
         if (CartItem::hasCart($productToDelete)) {
             return back()
                 ->with([
