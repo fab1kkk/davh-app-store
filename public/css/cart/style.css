@@ -6,6 +6,9 @@
     box-sizing: border-box;
 }
 
+.wrapper {
+    margin-top: 90px !important;
+}
 .grid-container {
     display: grid;
     width: 80%;
@@ -132,5 +135,8 @@
     .totals-wrapper button {
         margin-bottom: 10px;
         font-size: 14px;
+    }
+    .wrapper {
+        margin-top: 120px !important;
     }
 }
