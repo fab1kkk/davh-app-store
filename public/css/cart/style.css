@@ -1,36 +1,136 @@
+:root {
+    --main-color: rgba(255, 45, 0, 0.6);
+}
+
 * {
     box-sizing: border-box;
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: 400px 400px 400px;
-    grid-template-rows: 50px 300px 200px;
-    justify-content: center;
-    border: 2px solid black;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+    font-size: 18px;
+    font-family: 'Kanit', sans-serif;
+}
+.grid-container > p {
+    margin:0;
+}
+.wrap-scrollbar {
+    max-height: 500px;
+    overflow-y: auto;
 }
 
-.grid-container .header {
-    grid-row: 1;
+.wrap-scrollbar::-webkit-scrollbar {
+    width: 5px;
 }
 
-.grid-container .header-product {
-    background-color: greenyellow;
+.wrap-scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+    border-radius: 4px;
 }
 
-.grid-container .header-subtotal {
-    background-color: aqua;
-    grid-column: 2/span4;
-    text-align: end;
+.wrap-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #777;
 }
 
-.grid-container .content {
-    grid-row: 2;
-    background-color: red;
+.header-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+    background-color: var(--main-color);
+    color: white;
+    align-items: center;
 }
 
-.grid-container .grid-totals {
-    grid-row: 3;
-    grid-column: 3/4;
-    background-color: green;
+.header-product {
+    grid-column: 1;
+    justify-self: start;
+}
+
+.header-subtotal {
+    grid-column: 2;
+    justify-self: end;
+}
+
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 0.25fr 0.5fr 0.25fr;
+    grid-template-rows: auto;
+    padding: 10px;
+}
+
+.content-img>img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 15px;
+}
+
+.content-des {
+    display: grid;
+    font-size: 14px;
+    padding-left: 10px;
+    align-items: center;
+}
+.content-des-item3 > a 
+{
+    all: unset;
+    cursor: pointer;
+    font-size: 12px;
+    color: red;
+}
+
+.content-price {
+    display: grid;
+    justify-self: end;
+    align-items: center;
+}
+
+.totals-wrapper {
+    display: grid;
+    width: 50%;
+    justify-self: end;
+}
+
+.totals-wrapper>hr {
+    height: 5px;
+    color: var(--main-color);
+    opacity: 1;
+}
+
+.total-prize {
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+}
+
+.total-prize p:nth-child(2) {
+    justify-self: end;
+}
+
+.totals-wrapper button {
+    justify-self: center;
+    border: none;
+    border-radius: 15px;
+    background-color: orangered;
+    width: 100%;
+    color: white;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+@media(max-width:992px) {
+    .grid-container {
+        margin-top: 55px;
+        width: 100%;
+    }
+    .totals-wrapper button {
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
 }
