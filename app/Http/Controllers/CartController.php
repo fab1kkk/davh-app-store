@@ -5,31 +5,24 @@ namespace App\Http\Controllers;
 use App\Classes\CustomHelpers;
 use App\Helpers\Cookies\CookieProcessor;
 use App\Helpers\ShoppingCart\ShoppingCart;
+
+
 use App\Models\ShoppingCartItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cookie;
+
 
 class CartController extends Controller
 {
     public function show()
     {
         $title = CustomHelpers::setPageTitle('Lista zakupów');
-        $totalAmount = 0;
-        if (Auth::check()) {
-            $user = Auth::user();
-            $cartItems = $user->shoppingCart->cartItems;
-            $totalAmount = ShoppingCart::getTotalAmount($cartItems);
-        } else {
-            $cookieData = Cookie::get('product_ids');
-            $cartItems = $cookieData
-                ? unserialize($cookieData)
-                : [];
-        }
+        $products = ShoppingCart::getCartItems();
+        $totalAmount = ShoppingCart::getTotalAmount($products);
 
         return view('shopping_cart/index', [
             'title' => $title,
-            'items' => $cartItems,
+            'items' => $products,
             'totalAmount' => $totalAmount,
         ]);
     }
