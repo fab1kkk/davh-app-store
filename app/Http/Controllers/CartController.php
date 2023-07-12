@@ -18,7 +18,7 @@ class CartController extends Controller
     {
         $title = CustomHelpers::setPageTitle('Lista zakupów');
         $products = ShoppingCart::getCartItems();
-        $totalAmount = ShoppingCart::getTotalAmount($products);
+        $totalAmount = ShoppingCart::getTotalCartAmount();
 
         return view('shopping_cart/index', [
             'title' => $title,

@@ -11,6 +11,12 @@ class CookieProcessor
 {
     private const SHOPPING_CART_COOKIE = 'product_ids';
 
+
+    public static function getShoppingCartCookieName()
+    {
+        return self::SHOPPING_CART_COOKIE;
+    }
+
     public static function processProductCookieOnLogin()
     {
         $user = Auth::user();
