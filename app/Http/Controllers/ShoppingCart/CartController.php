@@ -29,7 +29,6 @@ class CartController extends Controller
 
     public function addToCart(Request $request)
     {
-        $productId = $request->input('id');
-        return CartItemHelper::store($productId);
+        return CartItemHelper::store($request->input('id'));
     }
 }
