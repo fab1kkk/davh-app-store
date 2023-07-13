@@ -34,7 +34,7 @@
         <hr>
         <div class="total-prize">
             <p>Łącznie do zapłaty</p>
-            <p>{{ $totalAmount }} pln</p>
+            <p>{{ $cartValue }} pln</p>
         </div>
         <button type="submit">Przejdź do podsumowania</button>
     </div>

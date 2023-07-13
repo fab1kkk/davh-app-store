@@ -9,9 +9,9 @@ use App\Models\Product;
 
 class ShoppingCartHelper
 {
-    public static function getTotalCartAmount()
+    public static function getCartValue()
     {
-        $items = self::getCartItems();
+        $items = self::getProducts();
         $total = 0.0;
         foreach ($items as $item) {
             $total += $item->price;
@@ -19,17 +19,26 @@ class ShoppingCartHelper
         return number_format($total, 2);
     }
 
-    public static function getCartItems()
+    public static function getProducts()
     {
         $logged = Auth::check();
         $productIds = $logged
-            ? self::getProductIdsFromUserCart()
+            ? self::getProductIdsFromDb()
             : self::getProductIdsFromCookie();
 
         return self::getProductsByIds($productIds);
     }
 
-    public static function getProductIdsFromUserCart()
+    public static function getProductsByIds($productIds)
+    {
+        $products = array();
+        foreach ($productIds as $id) {
+            $products[] = Product::find($id);
+        }
+        return $products;
+    }
+
+    public static function getProductIdsFromDb()
     {
         $productIds = array();
         if (Auth::check()) {
@@ -51,14 +60,5 @@ class ShoppingCartHelper
             : [];
 
         return $productIds;
-    }
-
-    public static function getProductsByIds($productIds)
-    {
-        $products = array();
-        foreach ($productIds as $id) {
-            $products[] = Product::find($id);
-        }
-        return $products;
     }
 }
