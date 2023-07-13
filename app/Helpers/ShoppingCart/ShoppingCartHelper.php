@@ -7,16 +7,16 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use App\Models\Product;
 
-class ShoppingCart
+class ShoppingCartHelper
 {
     public static function getTotalCartAmount()
     {
         $items = self::getCartItems();
-        $total = 0;
+        $total = 0.0;
         foreach ($items as $item) {
             $total += $item->price;
         }
-        return $total;
+        return number_format($total, 2);
     }
 
     public static function getCartItems()
@@ -55,7 +55,6 @@ class ShoppingCart
     public static function getProductsByIds($productIds)
     {
         $products = array();
-
         foreach ($productIds as $id) {
             $products[] = Product::find($id);
         }
