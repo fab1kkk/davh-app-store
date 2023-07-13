@@ -21,7 +21,8 @@ class ShoppingCartHelper
 
     public static function getCartItems()
     {
-        $productIds = Auth::check()
+        $logged = Auth::check();
+        $productIds = $logged
             ? self::getProductIdsFromUserCart()
             : self::getProductIdsFromCookie();
 

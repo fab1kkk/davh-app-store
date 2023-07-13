@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\ShoppingCart;
 
+use App\Http\Controllers\Controller;
 use App\Classes\CustomHelpers;
 use App\Helpers\Cookies\CookieProcessor;
 use App\Helpers\ShoppingCart\ShoppingCartHelper;
@@ -18,11 +19,14 @@ class CartController extends Controller
         $products = ShoppingCartHelper::getCartItems();
         $totalAmount = ShoppingCartHelper::getTotalCartAmount();
 
-        return view('shopping_cart/index', [
+        $viewData = [
             'title' => $title,
             'products' => $products,
             'totalAmount' => $totalAmount,
-        ]);
+        ];
+
+        return view('shopping_cart/index')
+            ->with($viewData);
     }
 
     public function addToCart(Request $request)
