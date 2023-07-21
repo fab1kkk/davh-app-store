@@ -15,6 +15,7 @@
     gap: 10px;
     font-size: 18px;
     font-family: 'Kanit', sans-serif;
+    width: 75%;
 }
 
 .grid-container>p {
