@@ -1,25 +1,25 @@
 html,
 body {
-    background-image: linear-gradient(95.2deg, rgb(234, 235, 229) 26.8%, rgb(247, 250, 233) 64%);
-    height: 95vh;
+    height: 100vh;
     font-family: 'Source Sans Pro', sans-serif !important;
 }
 
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
-    min-height: 100px;
-    border-bottom: 4px solid;
-    border-color: rgba(255, 255, 255, 0.1);
-    margin: 0 auto;
+    min-height: 130px;
+    gap: 5px;
 }
 
 .wrapper {
+    display: flex;
     min-height: 100%;
-    margin-top: 120px !important;
+    min-width: 100%;
+    justify-content: center;
+    position: relative;
+}
+
+.wrapper > .content-container {
+    width: 1280px;
+    padding: 20px 20px;
 }
 footer {
     bottom: 0;
@@ -55,26 +55,20 @@ footer {
 }
 
 .nav-btn {
-    background: none;
     border: none;
-    border-left: 0 solid;
-    border-color: #f87a31;
+    background: none;
     padding-left: 4px;
-    color: rgba(255, 255, 255, .7);
-    transition: 0.1s ease-in-out;
-    font-size: 16px;
+    font-size: 20px;
+    color: rgb(255, 129, 84);
 }
-
-.nav-btn:hover {
-    color: rgba(255, 255, 255, .9);
-    border-color: #f87a31;
-    border-width: 6px;
+.nav-btn:hover{
+    color: orangered;
 }
 #myForm {
     font-size: 0;
 }
 #login-btn.active {
-    color: white;
+    color: orangered;
 }
 
 .btn {
@@ -86,10 +80,6 @@ footer {
     background-color: #1b1b1b !important;
 }
 
-.container .form-control {
-    border-radius: 15px !important;
-    margin: 15px auto;
-}
 .container form{
     width: 100% !important;
 }
@@ -140,10 +130,4 @@ footer {
 @keyframes spin {
     from { transform: rotate(0turn);}
     to {transform: rotate(1turn);}
-}
-
-@media(max-width:992px){
-    .wrapper {
-        margin-top: 200px !important;
-    }
 }

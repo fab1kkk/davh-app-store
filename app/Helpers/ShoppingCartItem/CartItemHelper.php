@@ -5,7 +5,6 @@ namespace App\Helpers\ShoppingCartItem;
 use App\Helpers\Cookies\CookieProcessor;
 use App\Models\Product;
 use App\Models\ShoppingCartItem;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CartItemHelper

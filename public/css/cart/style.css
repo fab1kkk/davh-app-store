@@ -6,13 +6,8 @@
     box-sizing: border-box;
 }
 
-.wrapper {
-    margin-top: 90px !important;
-}
-
 .grid-container {
     display: grid;
-    width: 80%;
     margin-left: auto;
     margin-right: auto;
     grid-template-columns: 1fr;
@@ -27,17 +22,16 @@
 }
 
 .wrap-scrollbar {
-    max-height: 500px;
+    max-height: 600px;
     overflow-y: auto;
 }
 
 .wrap-scrollbar::-webkit-scrollbar {
-    width: 5px;
+    width: 6px;
 }
 
 .wrap-scrollbar::-webkit-scrollbar-thumb {
     background-color: var(--main-color);
-    border-radius: 4px;
 }
 
 .wrap-scrollbar::-webkit-scrollbar-thumb:hover {
@@ -136,15 +130,10 @@
 
 @media(max-width:992px) {
     .grid-container {
-        margin-top: 55px;
         width: 100%;
     }
 
     .totals-wrapper button {
         font-size: 14px;
-    }
-
-    .wrapper {
-        margin-top: 120px !important;
     }
 }

@@ -9,14 +9,14 @@ use App\Classes\CustomHelpers;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/base.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <title>@yield('title', CustomHelpers::setPageTitle() )</title>
 </head>
 
 <body>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-secondary fixed-top">
+    <nav class="navbar navbar-expand">
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -27,7 +27,7 @@ use App\Classes\CustomHelpers;
                         <a class="nav-link" href="{{ route('home.index') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('category.index') }}">Oferta</a>
+                        <a class="nav-link offer" href="{{ route('category.index') }}">Oferta</a>
                     </li>
                 </ul>
             </div>
@@ -80,7 +80,7 @@ use App\Classes\CustomHelpers;
             @endif
     </nav>
     <div class="wrapper">
-        <div class="container">
+        <div class="content-container">
             @if ($errors->any())
             <div class="alert alert-danger text-center">
                 @foreach ($errors->all() as $error)
@@ -127,8 +127,6 @@ use App\Classes\CustomHelpers;
                 event.preventDefault();
             }
         });
-    </script>
-    <script>
         function submitAnimation(btn) {
             var form = btn.closest('form');
             var requiredFields = form.querySelectorAll('[required]');
@@ -145,6 +143,7 @@ use App\Classes\CustomHelpers;
             }
         };
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"> </script>
 
 
