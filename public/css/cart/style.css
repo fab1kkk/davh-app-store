@@ -128,7 +128,12 @@
     padding: 5px;
     margin-top: 10px;
 }
-
+.btn-del-from-cart
+{
+    border: none;
+    background:none;
+    color: orangered;
+}
 @media(max-width:992px) {
     .grid-container {
         width: 100%;

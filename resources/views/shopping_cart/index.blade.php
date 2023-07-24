@@ -26,7 +26,7 @@
                     <form action="{{ route('cart.removeItemFromCart', $product->id) }}" method="post">
                         @csrf
                         @method('delete')
-                        <button>usuń z koszyka</button>
+                        <button class="btn-del-from-cart">usuń z koszyka</button>
                     </form>
                 </div>
             </div>
