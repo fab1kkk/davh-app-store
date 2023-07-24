@@ -7,7 +7,7 @@ use App\Classes\CustomHelpers;
 use App\Helpers\ShoppingCart\ShoppingCartHelper;
 use App\Helpers\ShoppingCartItem\CartItemHelper;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Cookie;
 
 class CartController extends Controller
 {
@@ -30,5 +30,18 @@ class CartController extends Controller
     public function addToCart(Request $request)
     {
         return CartItemHelper::store($request->input('id'));
+    }
+
+    public function removeItemFromCart(ShoppingCartHelper $products, $id)
+    {
+        $products = $products->getProducts();
+        for ($i = 0; $i < count($products); $i++)
+        {
+            if ($products[$i]->id == intval($id))
+            {
+                unset($products[$i]);
+            }
+        }
+        dd(serialize($products));
     }
 }

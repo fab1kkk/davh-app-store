@@ -1,7 +1,6 @@
 @extends('layout/base')
 @section('title', $title)
 @section('content')
-
 <div class="row">
     <div class="col-lg-4">
         <div class="image text-center">

@@ -48,4 +48,9 @@ class CookieProcessor
 
         return Cookie::make(self::SHOPPING_CART_COOKIE, $cookieData, 60 * 60 * 24 * 365);
     }
+
+    public static function deleteProductIdFromCookie($id)
+    {
+
+    }
 }

@@ -53,7 +53,7 @@ class ShoppingCartHelper
     public static function getProductIdsFromCookie()
     {
         $productCookie = CookieProcessor::getShoppingCartCookieName();
-
+        
         $productIds = array();
         $productIds = Cookie::get($productCookie)
             ? unserialize(Cookie::get($productCookie))

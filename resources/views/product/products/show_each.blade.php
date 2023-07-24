@@ -27,7 +27,7 @@
                 </h5>
                 <p class="card-text">{{$product['description']}}
                 </p>
-                <form action="{{ route('cart.add', $product->id ) }}" method="post">
+                <form action="{{ route('cart.addToCart', $product->id ) }}" method="post">
                     @csrf
                     <input type="hidden" name="id" value="{{$product->id}}">
                     <input type="hidden" name="price" value="{{$product->price}}">

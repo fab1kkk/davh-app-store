@@ -51,5 +51,6 @@ Route::prefix('admin')->middleware('admin.auth')->name('admin.dashboard.')->grou
 
 Route::controller(CartController::class)->group(function() {
     Route::get('/cart', 'show')->name('cart.show');
-    Route::post('/cart/product/{id}/add', 'addToCart')->name('cart.add');
+    Route::post('/cart/product/{id}/add', 'addToCart')->name('cart.addToCart');
+    Route::delete('cart/product/{id}/delete', 'removeItemFromCart')->name('cart.removeItemFromCart');
 });

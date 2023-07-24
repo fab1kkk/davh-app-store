@@ -23,7 +23,11 @@
                 <div class="content-des-item1">{{$product->name}}</div>
                 <div class="content-des-item2">{{$product->getPrice()}}</div>
                 <div class="content-des-item3">
-                    <a href="#">usuń z koszyka</a>
+                    <form action="{{ route('cart.removeItemFromCart', $product->id) }}" method="post">
+                        @csrf
+                        @method('delete')
+                        <button>usuń z koszyka</button>
+                    </form>
                 </div>
             </div>
             <div class="content content-price">{{$product->getPrice()}}</div>

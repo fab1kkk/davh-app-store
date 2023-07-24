@@ -10,14 +10,14 @@ use App\Classes\CustomHelpers;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/base.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
-    <link rel="icon" type="image/x-icon" href="{{ asset('static/img/navbar/cart.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('static/img/bed.png') }}">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <title>@yield('title', CustomHelpers::setPageTitle() )</title>
 </head>
 
 <body>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
