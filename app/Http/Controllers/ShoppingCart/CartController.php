@@ -34,18 +34,19 @@ class CartController extends Controller
 
     public function removeItemFromCart(ShoppingCartHelper $products, $id)
     {
-        $products = array_values($products->getProductIdsFromCookie());
+        return ShoppingCartHelper::removeItem($id);
+        // $products = array_values($products->getProductIdsFromCookie());
+        // dd(Cookie::get('product_ids'));
+        // for ($i = 0; $i < count($products); $i++) {
+        //     if ($products[$i] == $id) {
+        //         unset($products[$i]);
+        //     }
+        // }
+        // $products = serialize($products);
+        // $cookie = Cookie::make('product_ids', $products, 60 * 60 * 24 * 365);
+        // return redirect()->back()->withCookie(
+        //     $cookie
 
-        for ($i = 0; $i < count($products); $i++) {
-            if ($products[$i] == $id) {
-                unset($products[$i]);
-            }
-        }
-        $products = serialize($products);
-        $cookie = Cookie::make('product_ids', $products, 60 * 60 * 24 * 365);
-        return redirect()->back()->withCookie(
-            $cookie
-
-        );
+        // );
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Helpers\Cookies;
 
 use App\Models\ShoppingCartItem;
+use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 
@@ -49,8 +50,21 @@ class CookieProcessor
         return Cookie::make(self::SHOPPING_CART_COOKIE, $cookieData, 60 * 60 * 24 * 365);
     }
 
-    public static function deleteProductIdFromCookie($id)
+    public static function updateShoppingCartCookie($id)
     {
+        if (!Cookie::has(self::SHOPPING_CART_COOKIE)) {
+            throw new Exception("Cookie: " . self::SHOPPING_CART_COOKIE . " not found");
+        }
+        $productIds = array_values(unserialize(Cookie::get(self::SHOPPING_CART_COOKIE)));
+        for ($i = 0; $i < count($productIds); $i++) {
+            if ($productIds[$i] == $id) {
+                unset($productIds[$i]);
+                break;
+            }
+        }
+        $productIds = serialize($productIds);
+        $newProductCookie = Cookie::make(self::SHOPPING_CART_COOKIE, $productIds, 60 * 60 * 24 * 365);
 
+        return $newProductCookie;
     }
 }

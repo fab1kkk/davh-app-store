@@ -11,6 +11,7 @@ class ProductCookie implements CookieProcessorInterface
 {
     private const COOKIE_NAME = 'product_ids';
 
+
     public static function apply($cookie = self::COOKIE_NAME)
     {
         $user = Auth::user();
@@ -28,7 +29,11 @@ class ProductCookie implements CookieProcessorInterface
                 $cartItem->save();
             }
         }
-
         return Cookie::forget($cookie);
+    }
+
+    public static function update()
+    {
+        
     }
 }

@@ -53,12 +53,24 @@ class ShoppingCartHelper
     public static function getProductIdsFromCookie()
     {
         $productCookie = CookieProcessor::getShoppingCartCookieName();
-        
+
         $productIds = array();
         $productIds = Cookie::get($productCookie)
             ? unserialize(Cookie::get($productCookie))
             : [];
 
         return $productIds;
+    }
+
+    public static function removeItem($id)
+    {
+        return Auth::check()
+            ? 'Hello'
+            : redirect()->back()->withCookie(CookieProcessor::updateShoppingCartCookie($id));
+
+        // if auth
+        // remove from db
+        // if not auth
+        // remove from cookie
     }
 }
