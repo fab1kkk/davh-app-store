@@ -38,7 +38,7 @@ class LoginController extends Controller
                 ? redirect()->route('admin.dashboard.index')
                 : redirect()->route('home.index')->with('success_form', "Logged in.");
 
-            return $response->withCookie(ProductCookie::apply());
+            return $response->withCookie(ProductCookie::syncCartFromCookieToDatabase());
         }
         return back()
             ->withErrors(

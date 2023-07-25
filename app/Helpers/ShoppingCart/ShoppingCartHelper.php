@@ -3,6 +3,7 @@
 namespace App\Helpers\ShoppingCart;
 
 use App\Helpers\Cookies\CookieProcessor;
+use App\Helpers\Cookies\ProductCookie;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use App\Models\Product;
@@ -52,7 +53,7 @@ class ShoppingCartHelper
 
     public static function getProductIdsFromCookie()
     {
-        $productCookie = CookieProcessor::getShoppingCartCookieName();
+        $productCookie = ProductCookie::getCookieName();
 
         $productIds = array();
         $productIds = Cookie::get($productCookie)
@@ -66,11 +67,6 @@ class ShoppingCartHelper
     {
         return Auth::check()
             ? 'Hello'
-            : redirect()->back()->withCookie(CookieProcessor::updateShoppingCartCookie($id));
-
-        // if auth
-        // remove from db
-        // if not auth
-        // remove from cookie
+            : redirect()->back()->withCookie(ProductCookie::updateOnDelete($id));
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Helpers\ShoppingCartItem;
 
 use App\Helpers\Cookies\CookieProcessor;
+use App\Helpers\Cookies\ProductCookie;
 use App\Models\Product;
 use App\Models\ShoppingCartItem;
 use Illuminate\Support\Facades\Auth;
@@ -36,7 +37,7 @@ class CartItemHelper
 
     public static function storeToCookie($id)
     {
-        $cookie = CookieProcessor::addProductIdToCookie($id);
+        $cookie = ProductCookie::updateOnStore($id);
         return redirect()->back()->withCookie($cookie);
     }
 }
