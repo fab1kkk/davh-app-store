@@ -23,7 +23,25 @@ class CartItemHelper
             : self::storeToCookie($id);
     }
 
-    public static function storeToDb($id)
+    public static function removeFromDb($id)
+    {
+        $itemToRemove = ShoppingCartItem::where('product_id', $id)->first();
+        if ($itemToRemove) {
+            $itemToRemove->delete();
+            $removedItem = Product::where('id', $id)->first();
+            return [
+                'success' => true,
+                'message' => 'Product ' . $removedItem->name . ' removed.',
+                'item' => $removedItem,
+            ];
+        }
+        return [
+            'success' => false,
+            'message' => 'Item could not be removed.'
+        ];
+    }
+
+    private static function storeToDb($id)
     {
         if (Auth::check()) {
             $user = Auth::user();
@@ -35,7 +53,7 @@ class CartItemHelper
         }
     }
 
-    public static function storeToCookie($id)
+    private static function storeToCookie($id)
     {
         $cookie = ProductCookie::updateOnStore($id);
         return redirect()->back()->withCookie($cookie);

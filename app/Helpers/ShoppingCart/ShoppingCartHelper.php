@@ -2,8 +2,8 @@
 
 namespace App\Helpers\ShoppingCart;
 
-use App\Helpers\Cookies\CookieProcessor;
 use App\Helpers\Cookies\ProductCookie;
+use App\Helpers\ShoppingCartItem\CartItemHelper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use App\Models\Product;
@@ -30,7 +30,7 @@ class ShoppingCartHelper
         return self::getProductsByIds($productIds);
     }
 
-    public static function getProductsByIds($productIds)
+    private static function getProductsByIds($productIds)
     {
         $products = array();
         foreach ($productIds as $id) {
@@ -39,7 +39,7 @@ class ShoppingCartHelper
         return $products;
     }
 
-    public static function getProductIdsFromDb()
+    private static function getProductIdsFromDb()
     {
         $productIds = array();
         if (Auth::check()) {
@@ -51,7 +51,7 @@ class ShoppingCartHelper
         return $productIds;
     }
 
-    public static function getProductIdsFromCookie()
+    private static function getProductIdsFromCookie()
     {
         $productCookie = ProductCookie::getCookieName();
 
@@ -66,7 +66,7 @@ class ShoppingCartHelper
     public static function removeItem($id)
     {
         return Auth::check()
-            ? 'Hello'
-            : redirect()->back()->withCookie(ProductCookie::updateOnDelete($id));
+            ? CartItemHelper::removeFromDb($id)
+            : ProductCookie::updateOnDelete($id);
     }
 }

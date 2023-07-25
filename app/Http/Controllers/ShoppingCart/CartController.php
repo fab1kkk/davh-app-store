@@ -32,21 +32,23 @@ class CartController extends Controller
         return CartItemHelper::store($request->input('id'));
     }
 
-    public function removeItemFromCart(ShoppingCartHelper $products, $id)
+    public function removeItemFromCart($id)
     {
-        return ShoppingCartHelper::removeItem($id);
-        // $products = array_values($products->getProductIdsFromCookie());
-        // dd(Cookie::get('product_ids'));
-        // for ($i = 0; $i < count($products); $i++) {
-        //     if ($products[$i] == $id) {
-        //         unset($products[$i]);
-        //     }
-        // }
-        // $products = serialize($products);
-        // $cookie = Cookie::make('product_ids', $products, 60 * 60 * 24 * 365);
-        // return redirect()->back()->withCookie(
-        //     $cookie
-
-        // );
+        $response = ShoppingCartHelper::removeItem($id);
+        if ($response['success'] === true) {
+            if (key_exists('cookie', $response)) {
+                return redirect()
+                    ->back()
+                    ->withCookie($response['cookie'])
+                    ->with([
+                        'message' => $response['message']
+                    ]);
+            }
+            return redirect()
+                ->back()
+                ->with([
+                    'message' => $response['item']->name . $response['message']
+                ]);
+        }
     }
 }

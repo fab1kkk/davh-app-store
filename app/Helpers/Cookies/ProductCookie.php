@@ -2,6 +2,7 @@
 
 namespace App\Helpers\Cookies;
 
+use App\Models\Product;
 use App\Models\ShoppingCartItem;
 use Exception;
 use Illuminate\Support\Facades\Auth;
@@ -62,8 +63,15 @@ class ProductCookie implements CookieProcessorInterface
             }
         }
         $productIds = serialize($productIds);
-        $newProductCookie = Cookie::make(self::COOKIE_NAME, $productIds, 60 * 60 * 24 * 365);
+        $newProductCookie = cookie(self::COOKIE_NAME, $productIds, 60 * 60 * 24 * 365);
 
-        return $newProductCookie;
+        $removedItem = Product::where('id', $id)->first();
+
+        return [
+            'success' => true,
+            'message' => 'Product ' . $removedItem->name . ' removed.',
+            'item' => $removedItem,
+            'cookie' => $newProductCookie,
+        ];
     }
 }

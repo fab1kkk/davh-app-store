@@ -7,6 +7,7 @@
 
 
 @section('content')
+<p></p>
 <div class="grid-container">
     <p>Koszyk ({{ count($products) }})</p>
     <div class="header-wrapper">

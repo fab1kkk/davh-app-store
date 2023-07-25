@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\admin\panel;
 
-use App\Helpers\ShoppingCartItem\CartItem;
+use App\Helpers\ShoppingCartItem\CartItemHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductCategory;
-use App\Models\ShoppingCartItem;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -77,7 +76,7 @@ class ProductController extends Controller
     public function delete($id): RedirectResponse
     {
         $productToDelete = Product::find($id);
-        if (CartItem::hasCart($productToDelete)) {
+        if (CartItemHelper::hasCart($productToDelete)) {
             return back()
                 ->with([
                     'formFinalizationErrorMessage' => "Produkt " . $productToDelete->name . " znajduje się aktualnie w czyimś koszyku. Nie można go usunąć."
