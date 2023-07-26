@@ -2,7 +2,6 @@
 
 namespace App\Helpers\ShoppingCartItem;
 
-use App\Helpers\Cookies\CookieProcessor;
 use App\Helpers\Cookies\ProductCookie;
 use App\Models\Product;
 use App\Models\ShoppingCartItem;

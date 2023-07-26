@@ -5,8 +5,19 @@ body {
 }
 
 .navbar {
-    min-height: 130px;
+    min-height: 100px;
+    padding-top: 20px !important;
     gap: 5px;
+    font-size: 20px !important;
+}
+
+.logo-container {
+    display: flex;
+}
+
+.logo-image {
+    max-width: 100%;
+    width: 200px;
 }
 
 .wrapper {
@@ -17,10 +28,11 @@ body {
     position: relative;
 }
 
-.wrapper > .content-container {
+.wrapper>.content-container {
     width: 1280px;
     padding: 20px 20px;
 }
+
 footer {
     bottom: 0;
     left: 0;
@@ -45,8 +57,9 @@ footer {
     justify-content: center;
     gap: 15px;
 }
+
 .nav-item {
-    font-size: 20px;
+    /* font-size: 25px; */
 }
 
 .header-profile:hover {
@@ -58,15 +71,18 @@ footer {
     border: none;
     background: none;
     padding-left: 4px;
-    font-size: 20px;
+    font-size: 22px;
     color: rgb(255, 129, 84);
 }
-.nav-btn:hover{
+
+.nav-btn:hover {
     color: orangered;
 }
+
 #myForm {
     font-size: 0;
 }
+
 #login-btn.active {
     color: orangered;
 }
@@ -76,13 +92,15 @@ footer {
     background-color: #2b2a2a !important;
     color: white !important;
 }
+
 .btn:hover {
     background-color: #1b1b1b !important;
 }
 
-.container form{
+.container form {
     width: 100% !important;
 }
+
 .container a {
     text-decoration: none;
 }
@@ -90,6 +108,7 @@ footer {
 .cart {
     position: relative;
 }
+
 .dot {
     position: absolute;
     top: -10px;
@@ -97,26 +116,28 @@ footer {
     height: 20px;
     right: -8px;
     border-radius: 50%;
-    background-color:rgba(250, 142, 0, 0.8);
+    background-color: rgba(250, 142, 0, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
 }
+
 .dot-number {
     font-size: 12px;
     font-weight: semi-bold;
 }
 
 .loader {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
     width: 100%;
 }
+
 .loader::after {
-    content : "";
+    content: "";
     width: 20px;
     height: 20px;
     border-top: 5px solid gray;
@@ -128,6 +149,23 @@ footer {
 }
 
 @keyframes spin {
-    from { transform: rotate(0turn);}
-    to {transform: rotate(1turn);}
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+@media (max-width: 1400px) {
+    .navbar-expand-lg .navbar-nav {
+        width: 230px;
+    }
+}
+
+@media (max-width: 992px) {
+    .logo-container {
+        display: flex;
+    }
 }

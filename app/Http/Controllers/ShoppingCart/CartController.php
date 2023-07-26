@@ -7,7 +7,6 @@ use App\Classes\CustomHelpers;
 use App\Helpers\ShoppingCart\ShoppingCartHelper;
 use App\Helpers\ShoppingCartItem\CartItemHelper;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cookie;
 
 class CartController extends Controller
 {

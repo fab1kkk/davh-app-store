@@ -10,25 +10,34 @@ use App\Classes\CustomHelpers;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/base.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
-    <link rel="icon" type="image/x-icon" href="{{ asset('static/img/bed.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('static/img/DAVHON_MEBLE_meta.svg') }}">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <title>@yield('title', CustomHelpers::setPageTitle() )</title>
 </head>
 
 <body>
+
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="logo-container">
+                <a href="{{route('home.index')}}">
+                    <img class="logo-image" src="{{asset('static/img/DAVHON_MEBLE.svg') }}" alt="logo">
+                </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home.index') }}">Home</a>
+                        <a class="nav-link offer" href="{{ route('category.index') }}">Oferta</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link offer" href="{{ route('category.index') }}">Oferta</a>
+                        <a class="nav-link offer" href="{{ route('category.index') }}">O nas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link offer" href="{{ route('category.index') }}">Kontakt</a>
                     </li>
                 </ul>
             </div>
@@ -68,14 +77,14 @@ use App\Classes\CustomHelpers;
                     </a>
                     <form class="form-inline my-2 my-lg-0" method="POST" action="{{ route('login.logout') }}">
                         @csrf
-                        <button class="nav-btn" type="submit">Logout</button>
+                        <button class="nav-btn" type="submit">Wyloguj</button>
                 </div>
                 </form>
             </div>
             @else
             <div class="container">
                 <a href="{{ route('login.index')}}">
-                    <button class="nav-btn" id="login-btn">Sign In</button>
+                    <button class="nav-btn" id="login-btn">Zaloguj</button>
                 </a>
             </div>
             @endif
@@ -128,6 +137,7 @@ use App\Classes\CustomHelpers;
                 event.preventDefault();
             }
         });
+
         function submitAnimation(btn) {
             var form = btn.closest('form');
             var requiredFields = form.querySelectorAll('[required]');
